@@ -6,7 +6,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/OrderVerTwo/OrderSummary/OrderSummary';
 import axios from '../../axios-orders';
 import Aux from '../../hoc/Aux/Aux';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 class OrderBuilder extends Component {
 
@@ -47,6 +47,16 @@ class OrderBuilder extends Component {
                 this.setState({error: true});
             });
     }
+
+    // componentDidUpdate () {
+    //     axios.get('https://tarashkari-test-one-default-rtdb.firebaseio.com/repairables.json?auth='+this.props.token)
+    //         .then(response => {
+    //             this.setState({repairables: response.data});
+    //         })
+    //         .catch(error => {
+    //             this.setState({error: true});
+    //         });
+    // }
 
     updateOrderState (repairables) {
 
@@ -102,22 +112,22 @@ class OrderBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        //alert('You continued!');
-        const order = {
-            repairables: this.state.repairables,
-            customer : {
-                name: 'kiomars mechanic',
-                address: {
-                    city: 'nasim shahr',
-                    neighborhood: 'esmaeil abad',
-                    street: 'reza kazemi',
-                    pelak: '2'
-                },
-                email: 'test@test.com'
-            },
-            deliveryPerson: 'mammad agha'
-        }
-        axios.post('/orders.json', order)
+        alert('You continued!');
+        // const order = {
+        //     repairables: this.state.repairables,
+        //     customer : {
+        //         name: 'kiomars mechanic',
+        //         address: {
+        //             city: 'nasim shahr',
+        //             neighborhood: 'esmaeil abad',
+        //             street: 'reza kazemi',
+        //             pelak: '2'
+        //         },
+        //         email: 'test@test.com'
+        //     },
+        //     deliveryPerson: 'mammad agha'
+        // }
+        axios.post('/orders.json?auth='+this.props.token, this.state.repairables)
             .then(response => console.log(response))
             .catch(error => console.log(error));
 

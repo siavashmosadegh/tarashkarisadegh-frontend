@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 //import AnotherHeader from './components/AnotherHeader/AnotherHeader';
 import Layout from './components/Layout/Layout';
+import {connect} from 'react-redux';
+import * as actions from './store/actions/index';
 //import Caro from './components/Caro/Caro';
 //import MainPageServicesVersionTwo from './components/MainPageServicesVersionTwo/MainPageServicesVersionTwo';
 //import NavigationBar from './components/NavigationBar/NavigationBar';
@@ -15,36 +17,50 @@ import Layout from './components/Layout/Layout';
 //import Slogan from './components/Slogan/Slogan';//import TopBar from './components/TopBar/TopBar';
 //import MainPageServices from './components/MainPageServices/MainPageServices';
 
-function App () {
-    return (
-        <div>
-            {/* <Slogan /> */}{/* <MainPageServices /> */}
-            
-            {/* <NavigationBar />
+class App extends Component {
 
-            <Caro />
+    componentDidMount () {
+        this.props.onTryAutoSignup();
+    }
 
-            <Welcome />
+    render () {
 
-            <MainPageServicesVersionTwo />            
-
-            <Register />
-
-            <Login />
-
-            <MainPageWhyVersionOne />
-
-            <MainPageContact />
-            
-            <CylinderheadServices />
-
-            <CylinderServices />
-
-            <TheActualContactUs /> */}
-
-            <Layout />
-        </div>
-    );
+        return (
+            <div>
+                {/* <Slogan /> */}{/* <MainPageServices /> */}
+                
+                {/* <NavigationBar />
+    
+                <Caro />
+    
+                <Welcome />
+    
+                <MainPageServicesVersionTwo />            
+    
+                <Register />
+    
+                <Login />
+    
+                <MainPageWhyVersionOne />
+    
+                <MainPageContact />
+                
+                <CylinderheadServices />
+    
+                <CylinderServices />
+    
+                <TheActualContactUs /> */}
+    
+                <Layout />
+            </div>
+        );
+    }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+    return {
+        onTryAutoSignup : () => dispatch(actions.authCheckState())
+    };
+};
+
+export default connect(null, mapDispatchToProps)(App);

@@ -1,12 +1,13 @@
 import React , {Component} from 'react';
 import Input from '../../components/UI/Input/Input';
-import Button from '../../components/UI/Button/Button';
+//import Button from '../../components/UI/Button/Button';
 import classes from './Auth.module.css';
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import * as actions from '../../store/actions/index';
 import {connect} from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {Redirect} from 'react-router-dom';
+import {Button} from 'react-bootstrap';
 
 class Auth extends Component {
 
@@ -146,14 +147,40 @@ class Auth extends Component {
         return (
             <div>
                 <NavigationBar isAuthenticated={this.props.isAuthenticated}/>
+
+                <br></br>
+                <br></br>
+
+                <h1 className={classes.header}>
+                    {   
+                        this.state.isSignup ? 'ایجاد حساب کاربری' 
+                                            : 'ورود به حساب کاربری'
+                    }
+                </h1>
+
+                <br></br>
+                
+                <p className={classes.paragraph}>
+                    {
+                        this.state.isSignup ? 'اگر حساب کاربری دارید دکمه ی پایین را بزنید تا به صفحه ی ورود به حساب منتقل شوید'
+                                            : 'اگر هنوز حساب کاربری ایجاد نکرده اید دکمه ی پایین را بزنید تا به صفحه ی ایجاد حساب منتقل شوید'
+                    }
+                </p>
+
+                <br></br>
+
+                <div className={classes.goToButtonDiv}>
+                    <Button variant="warning" onClick={this.switchAuthModeHandler}>برو به {this.state.isSignup ? 'ورود' : 'ثبتنام'}</Button>
+                </div>
+
                 <div className={classes.Auth}>
                     {authRedirect}
                     {errorMessage}
-                    <form onSubmit={this.submitHandler}>
+                    <form>
                         {form}
-                        <Button btnType="Success">ارسال اطلاعات</Button>
+                        <Button variant="success" onClick={this.submitHandler}>ارسال اطلاعات</Button>
                     </form>
-                    <Button btnType="Danger" clicked={this.switchAuthModeHandler}>برو به {this.state.isSignup ? 'ورود' : 'ثبتنام'}</Button>
+                    
                 </div>
             </div>
         );

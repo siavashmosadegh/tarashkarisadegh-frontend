@@ -18,6 +18,7 @@ import ContactData from '../../components/ContactData/ContactData';
 import LoginVerTwo from '../../components/LoginVerTwo/LoginVerTwo';
 import Auth from '../../containers/Auth/Auth';
 import Logout from '../../containers/Auth/Logout/Logout';
+import Panel from '../../containers/Panel/Panel';
 
 function Layout () {
     return (
@@ -33,6 +34,7 @@ function Layout () {
                 <Route path="/afterloginorregister" component={AfterLoginOrRegister} />
                 <Route path="/order" component={Order} />
                 <Route path="/staff" component={OrderBuilder} />
+                <Route path="/panel" component={Panel} />
 
                 <Route exact path="/" component={BetweenNavigationBarAndFooter} />
             </BrowserRouter>

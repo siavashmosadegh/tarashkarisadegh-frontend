@@ -8,6 +8,19 @@
     box-sizing: border-box;
 }
 
+.header {
+    text-align: center;
+}
+
+.paragraph {
+    text-align: center;
+}
+
+.goToButtonDiv {
+    display: flex;
+    justify-content: center;
+}
+
 @media (min-width: 600px) {
     .Auth {
         width: 500px;

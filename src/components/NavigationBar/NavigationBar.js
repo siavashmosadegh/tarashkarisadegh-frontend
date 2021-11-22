@@ -49,12 +49,18 @@ function NavigationBar (props) {
                     </Nav.Link>
 
                     <Nav.Link>
-                        <Link to="/staff">
-                            <Button variant="link" className={style.navBarButtons}>پرسنل</Button>
+                        <Link to="/panel">
+                            <Button variant="link" className={style.navBarButtons}>پنل ادمین</Button>
                         </Link>
                     </Nav.Link>
 
                     {/* <Nav.Link>
+                        <Link to="/staff">
+                            <Button variant="link" className={style.navBarButtons}>پرسنل</Button>
+                        </Link>
+                    </Nav.Link> */}
+
+                    <Nav.Link>
                         {props.isAuthenticated
                             ?
                             <Link to="/staff">
@@ -63,7 +69,7 @@ function NavigationBar (props) {
                             :
                             null
                         }
-                    </Nav.Link> */}
+                    </Nav.Link>
                 </Nav>
             </Navbar>
         </div>
