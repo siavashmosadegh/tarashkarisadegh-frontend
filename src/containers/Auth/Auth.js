@@ -8,6 +8,19 @@ import {connect} from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {Redirect} from 'react-router-dom';
 import {Button} from 'react-bootstrap';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import LockIcon from '@mui/icons-material/Lock';
+
+var dict = {
+    'email' : <AccountBoxIcon fontSize="larger"/> ,
+    'password' : <LockIcon fontSize='50px'/>
+}
+
+var auth = {
+    'INVALID_PASSWORD': 'گذرواژه را اشتباه وارد کردید',
+    'EMAIL_EXISTS' : 'یک حساب با این ایمیل ثبت نام کرده است',
+    'EMAIL_NOT_FOUND': 'حسابی با این ایمیل ثبت نشده'
+}
 
 class Auth extends Component {
 
@@ -105,6 +118,8 @@ class Auth extends Component {
 
     render () {
 
+        console.log(dict['email']);
+
         const formElementArray = [];
         for (let key in this.state.controls) {
             formElementArray.push({
@@ -113,17 +128,26 @@ class Auth extends Component {
             })
         }
 
+        let icon= null;
+
         let form = formElementArray.map(formElement => (
-            <Input 
-                key={formElement.id}
-                elementType={formElement.config.elementType}
-                elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
-                invalid={!formElement.config.valid}
-                shouldValidate={formElement.config.validation}
-                touched={formElement.config.touched}
-                changed={(event) => this.inputChangedHandler(event,formElement.id)}
-            />
+            <div style={{display: "flex", alignItems: "center"}}>
+                {/* <label style={{color: "white",textAlign: "right"}}>{formElement.config.elementType}</label> */}
+                <Input 
+                    key={formElement.id}
+                    elementType={formElement.config.elementType}
+                    elementConfig={formElement.config.elementConfig}
+                    value={formElement.config.value}
+                    invalid={!formElement.config.valid}
+                    shouldValidate={formElement.config.validation}
+                    touched={formElement.config.touched}
+                    changed={(event) => this.inputChangedHandler(event,formElement.id)}
+                />
+                <span style={{color: "white"}}>{dict[`${formElement.config.elementConfig.type}`]}</span>
+                {/* // {`${formElement.config.elementConfig.type}`} */}
+                <br></br>
+                <br></br>
+            </div>
             
         ))
 
@@ -135,52 +159,71 @@ class Auth extends Component {
 
         if (this.props.error) {
             errorMessage = (
-                <p>{this.props.error.message}</p>
+                <p style={{color: 'white'}}>{auth[this.props.error]}</p>
             );
         }
 
+        // console.log(this.props.error);
+
         let authRedirect = null
         if (this.props.isAuthenticated) {
-            authRedirect = <Redirect to="/staff" />
+            authRedirect = <Redirect to="/afterloginorregister" />
         }
+
+        // console.log(this.props.error);
 
         return (
             <div>
+                {/* {dict['email']} */}
                 <NavigationBar isAuthenticated={this.props.isAuthenticated}/>
+                <div className={classes.rooter}>
+                    <div className={classes.imagediv}>
+                    </div>
+                    <div className={classes.root}>
+                        <div className={classes.insideroot}>
+                            <div>
+                                <br></br>
+                                <br></br>
 
-                <br></br>
-                <br></br>
+                                <h1 className={classes.header}>
+                                    {   
+                                        this.state.isSignup ? 'ایجاد حساب کاربری' 
+                                                            : 'ورود به حساب کاربری'
+                                    }
+                                </h1>
 
-                <h1 className={classes.header}>
-                    {   
-                        this.state.isSignup ? 'ایجاد حساب کاربری' 
-                                            : 'ورود به حساب کاربری'
-                    }
-                </h1>
+                                <br></br>
+                                
+                                <div style={{paddingLeft: "120px",paddingRight: "120px"}}>
+                                    <p className={classes.paragraph}>
+                                        {
+                                            this.state.isSignup ? 'اگر حساب کاربری دارید دکمه ی پایین را بزنید تا به صفحه ی ورود به حساب منتقل شوید'
+                                                                : 'اگر هنوز حساب کاربری ایجاد نکرده اید دکمه ی پایین را بزنید تا به صفحه ی ایجاد حساب منتقل شوید'
+                                        }
+                                    </p>
+                                </div>
 
-                <br></br>
-                
-                <p className={classes.paragraph}>
-                    {
-                        this.state.isSignup ? 'اگر حساب کاربری دارید دکمه ی پایین را بزنید تا به صفحه ی ورود به حساب منتقل شوید'
-                                            : 'اگر هنوز حساب کاربری ایجاد نکرده اید دکمه ی پایین را بزنید تا به صفحه ی ایجاد حساب منتقل شوید'
-                    }
-                </p>
+                                <br></br>
 
-                <br></br>
+                                <div className={classes.goToButtonDiv}>
+                                    <Button variant="warning" onClick={this.switchAuthModeHandler}>برو به {this.state.isSignup ? 'ورود' : 'ثبتنام'}</Button>
+                                </div>
 
-                <div className={classes.goToButtonDiv}>
-                    <Button variant="warning" onClick={this.switchAuthModeHandler}>برو به {this.state.isSignup ? 'ورود' : 'ثبتنام'}</Button>
-                </div>
+                                <br></br>
 
-                <div className={classes.Auth}>
-                    {authRedirect}
-                    {errorMessage}
-                    <form>
-                        {form}
-                        <Button variant="success" onClick={this.submitHandler}>ارسال اطلاعات</Button>
-                    </form>
-                    
+                                <div className={classes.Auth}>
+                                    {authRedirect}
+                                    {errorMessage}
+                                    <form>
+                                        {form}
+                                        <br></br>
+                                        <Button variant="success" onClick={this.submitHandler}>ارسال اطلاعات</Button>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

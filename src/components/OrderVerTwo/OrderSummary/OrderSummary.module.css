@@ -1,0 +1,42 @@
+
+.header {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 40px;
+}
+
+.paragraph {
+    text-align: right;
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.list {
+    direction: rtl;
+    text-align: right;
+}
+
+.listitem {
+    font-size: 20px;
+    margin: 20px;
+    /* background-color: greenyellow; */
+}
+
+.secondparagraph {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.buttonsdiv {
+    display: flex;
+    justify-content: center;
+}
+
+.confirmbutton {
+    margin-left: 10px;
+}
+
+.cancelbutton {
+    margin-right: 10px;
+}

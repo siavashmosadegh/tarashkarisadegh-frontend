@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.css';
 import authReducer from './store/reducers/auth';
+import contactdataReducer from './store/reducers/contactdata';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
@@ -15,7 +16,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
     //burgerBuilder: burgerBuilderReducer,
     //order: orderReducer,
-    auth: authReducer
+    auth: authReducer,
+    contactdata: contactdataReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(
@@ -26,7 +28,7 @@ const store = createStore(rootReducer, composeEnhancers(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <App title="تراشکاری صادق"/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

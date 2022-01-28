@@ -1,32 +1,19 @@
 import React from 'react';
-import { Container , Row , Col } from 'react-bootstrap';
-import myStyle from './style';
+import classes from './CylinderheadServicesItem.module.css';
 
-function CylinderheadServicesItem (props) {
-
-    const style = myStyle();
+const CylinderheadServicesItem = (props) => {
 
     return (
-        <div>
-            <Container>
-
-            <h1 className={style.header}>{props.title}</h1>
+        <div className={classes.root}>
+            <h1 className={classes.header}>{props.title}</h1>
 
             <br></br>
 
-            <Row>
-                <Col md={12}>
-                    <p className={style.paragraf}>{props.paragraphhh}</p>
-                </Col>
-            </Row>
+            <p className={classes.paragraf}>{props.paragraphhh}</p>
 
-            <Row>
-                <Col md={12}>
-                    <img src={props.imageSource} alt={props.imageSourceAlt} className={style.image} />
-                </Col>
-            </Row>
+            <br></br>
 
-            </Container>
+            <img src={props.imageSource} alt={props.imageSourceAlt} className={classes.image} />
         </div>
     );
 }

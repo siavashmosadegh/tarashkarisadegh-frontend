@@ -27,7 +27,7 @@ function NavigationBar (props) {
                         {!props.isAuthenticated 
                             ?
                             <Link to="/register">
-                                <Button variant="link" className={style.navBarButtons}>ثبت نام</Button>
+                                <Button variant="link" className={style.navBarButtons}>ثبت نام / ورود</Button>
                             </Link>
                             :
                             <Link to="/logout">
@@ -42,7 +42,7 @@ function NavigationBar (props) {
                         </Link>
                     </Nav.Link>
 
-                    <Nav.Link>
+                    {/* <Nav.Link>
                         <Link to="/login">
                             <Button variant="link" className={style.navBarButtons}>ورود</Button>
                         </Link>
@@ -52,7 +52,7 @@ function NavigationBar (props) {
                         <Link to="/panel">
                             <Button variant="link" className={style.navBarButtons}>پنل ادمین</Button>
                         </Link>
-                    </Nav.Link>
+                    </Nav.Link> */}
 
                     {/* <Nav.Link>
                         <Link to="/staff">

@@ -11,45 +11,33 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailIcon from '@material-ui/icons/Mail';
+import classes from './Footer.module.css';
 
-function Footer () {
-
-    const style = myStyle();
+const Footer = () => {
 
     return (
-        <div className={style.root}>
+        <div className={classes.root}>
                 <Row>
                     <Col md={3}>
-
-                    </Col>
-
-                    <Col md={3}>
-                        <h1 className={style.header}>شبکه های اجتماعی</h1>
+                        <h1 className={classes.header}>شبکه های اجتماعی</h1>
                         <br></br>
 
-                        <div className={style.social}>
+                        <div className={classes.social}>
                             <div>
                                 <a href="https://www.instagram.com/tarashkari_sadegh/">
                                     <InstagramIcon style={{ fontSize: 40 }} />
                                 </a>
-                                <br></br>
                                 
                                 <YouTubeIcon style={{ fontSize: 40 }}/>
-                                <br></br>
 
                                 <a href="https://twitter.com/tarashkari">
                                     <TwitterIcon style={{ fontSize: 40 }} />
                                 </a>
-                                <br></br>
                                 
                                 <TelegramIcon style={{ fontSize: 40 }}/>
-                                <br></br>
                                 <LinkedInIcon style={{ fontSize: 40 }}/>
-                                <br></br>
                                 <WhatsAppIcon style={{ fontSize: 40 }}/>
-                                <br></br>
                                 <FacebookIcon style={{ fontSize: 40 }}/>
-                                <br></br>
                                 <MailIcon style={{ fontSize: 40 }}/>
                             </div>
                         </div>
@@ -57,27 +45,38 @@ function Footer () {
                     </Col>
 
                     <Col md={3}>
-                        <h1 className={style.header}>انواع تعمیرات سیلندر</h1>
+                        <h1 className={classes.header}>انواع تعمیرات سیلندر</h1>
                         <br></br>
-                        <p className={style.paragraff}>تعمیر جای بوش سیلندر</p>
-                        <p className={style.paragraff}>برقوی سیلندر</p>
-                        <p className={style.paragraff}>پلیش بعد از برقو</p>
-                        <p className={style.paragraff}>بوش زدن سیلندر</p>
-                        <p className={style.paragraff}>آزمایش سیلندر</p>
-                        <p className={style.paragraff}>تنظیم زدن ثابت سیلندر</p>
-                        <p className={style.paragraff}>بازسازی شاتون زدگی سیلندر</p>
-                        <p className={style.paragraff}>کف تراشی سیلندر</p>
+                        <p className={classes.paragraff}>تعمیر جای بوش سیلندر</p>
+                        <p className={classes.paragraff}>برقوی سیلندر</p>
+                        <p className={classes.paragraff}>پلیش بعد از برقو</p>
+                        <p className={classes.paragraff}>بوش زدن سیلندر</p>
+                        <p className={classes.paragraff}>آزمایش سیلندر</p>
+                        <p className={classes.paragraff}>تنظیم زدن ثابت سیلندر</p>
+                        <p className={classes.paragraff}>بازسازی شاتون زدگی سیلندر</p>
+                        <p className={classes.paragraff}>کف تراشی سیلندر</p>
                     </Col>
 
                     <Col md={3}>
-                        <h1 className={style.header}>انواع تعمیرات سرسیلندر</h1>
+                        <h1 className={classes.header}>انواع تعمیرات سرسیلندر</h1>
                         <br></br>
-                        <p className={style.paragraff}>آب بندی سرسیلندر</p>
-                        <p className={style.paragraff}>کف تراشی سرسیلندر</p>
-                        <p className={style.paragraff}>سنگ زدن سرسیلندر</p>
-                        <p className={style.paragraff}>تعویض گایت</p>
-                        <p className={style.paragraff}>تعویض سیت</p>
-                        <p className={style.paragraff}>شیم بندی</p>
+                        <p className={classes.paragraff}>آب بندی سرسیلندر</p>
+                        <p className={classes.paragraff}>کف تراشی سرسیلندر</p>
+                        <p className={classes.paragraff}>سنگ زدن سرسیلندر</p>
+                        <p className={classes.paragraff}>تعویض گایت</p>
+                        <p className={classes.paragraff}>تعویض سیت</p>
+                        <p className={classes.paragraff}>شیم بندی</p>
+                    </Col>
+
+                    <Col md={3}>
+                        <h1 className={classes.header}>خدمات متفرقه</h1>
+                        <br></br>
+                        <p className={classes.paragraff}>سنگ زدن دنده های گیربکس</p>
+                        <p className={classes.paragraff}>تعمیر و بازسازی اکسل عقب</p>
+                        <p className={classes.paragraff}>تعویض و تابگیری چهارشاخه ی گاردون</p>
+                        <p className={classes.paragraff}>جوشکاری آرگون</p>
+                        <p className={classes.paragraff}>تاب گیری پوسته ی دفرانسیل و رفع لاستیک سایی</p>
+                        <p className={classes.paragraff}>تعویض بلبرینگ چرخ جلو و عقب</p>
                     </Col>
                 </Row>
         </div>

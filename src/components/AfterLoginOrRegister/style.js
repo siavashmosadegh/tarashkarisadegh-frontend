@@ -8,6 +8,12 @@ const useStyles = makeStyles({
         fontSize: "50px"
     },
 
+    headerrrr: {
+        paddingTop: "30px",
+        textAlign: "center",
+        fontSize: "25px"
+    },
+
     orderButton: {
         width: "100%",
         height: "75px"

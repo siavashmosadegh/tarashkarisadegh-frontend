@@ -1,0 +1,11 @@
+
+.root {
+    background-color: #21252b;
+    color: black;
+}
+
+.cylinderheaditemdiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

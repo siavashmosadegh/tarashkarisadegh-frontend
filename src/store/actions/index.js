@@ -4,4 +4,8 @@ export {
     auth,
     logout,
     authCheckState
-} from './auth'
+} from './auth';
+
+export {
+    fetchContactdata
+} from './contactdata';

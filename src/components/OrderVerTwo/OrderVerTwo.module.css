@@ -1,0 +1,19 @@
+/* root: {
+    textAlign: "center",
+    padding: "10px",
+    width: "20%",
+}, */
+.root {
+    text-align: center;
+    padding: 10px;
+    width: 20%;
+}
+
+/* roottwo: {
+    display: "flex",
+    justifyContent: "center"
+} */
+.roottwo {
+    display: flex;
+    justify-content: center;
+}

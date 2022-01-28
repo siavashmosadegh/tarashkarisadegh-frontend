@@ -5,8 +5,8 @@ const useStyles = makeStyles({
     root: {
         //textAlign: "center",
         padding: "50px",
-        //display: "flex",
-        //justifyContent: "center"
+        // display: "flex",
+        // justifyContent: "center"
     },
 
     orderNowButtonDiv : {

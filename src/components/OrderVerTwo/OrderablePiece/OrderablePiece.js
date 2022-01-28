@@ -5,9 +5,18 @@ const orderablePiece = (props) => {
 
     const style = myStyle();
 
+    let dictionary = {  "cutOffPitchWork" : "پیچ بریده", 
+                        "cylinder" : "سیلندر",
+                        "cylinderhead" : "سرسیلندر",
+                        "disk" : "دیسک",
+                        "excel" : "اکسل",
+                        "tooppi" : "توپی",
+                        "weldingWork" : "کار جوشکاری"
+    };
+
     return (
         <div className={style.root}>
-           <p>{props.nameOfThePiece}</p>
+           <p>{dictionary[props.nameOfThePiece]}</p>
         </div>
     );
 }

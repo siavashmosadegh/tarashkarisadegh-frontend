@@ -1,0 +1,29 @@
+.MyOrdersCell {
+    background-color: #21252b;
+    width: 90%;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    /* padding: 40px; */
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    height: 600px;
+    color: white;
+    text-align: right;
+    /* display: flex;
+    justify-content: space-evenly; */
+}
+
+.clockRow {
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    align-self: center;
+}
+
+.summary {
+    width: 100%;
+    direction: rtl;
+}

@@ -1,0 +1,54 @@
+.root {
+    display: flex;
+    padding: 50px;
+    height: auto;
+    background-color: #21252b;
+    justify-content: center;
+}
+/* root: {
+    //backgroundColor: "gray",
+    padding: "50px",
+    height: "auto",
+    backgroundColor: "#21252b"
+}, */
+.leftdiv {
+    width: 35%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.rightdiv {
+    width: 35%;
+    height: auto;
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 1500px) {
+    .leftdiv {
+        width: 45%;
+    }
+    .rightdiv {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1050px) {
+    .root {
+        display: block;
+    }
+
+    .leftdiv {
+        width: 100%;
+        height: auto;
+        margin-right: 0px;
+        margin-bottom: 10px;
+
+    }
+
+    .rightdiv {
+        width: 100%;
+        height: auto;
+        margin-left: 0px;
+        margin-top: 10px
+    }
+}

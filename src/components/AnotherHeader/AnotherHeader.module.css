@@ -1,0 +1,150 @@
+
+.root {
+    background-color: #21252b;
+    display: flex;
+}
+/* backgroundColor: "#21252b",
+display: "flex",
+justifyContent: "space-between" */
+
+.leftColumn {
+    width: 50%;
+    height: auto;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.rightColumnOuterDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.rightColumn {
+    height: auto;
+    background-color: #21252b;
+}
+/* height: "auto",
+backgroundColor: "#21252b",
+padding: "150px" */
+
+.rightColumnHeader {
+    color: white;
+    font-weight: bolder;
+    font-size: 70px;
+    text-align: right;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    /*border-right: .15em solid orange;  The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em;  */
+    /* Adjust as needed */
+    /* animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite; */
+}
+/* rightColumnHeader: {
+    color: "white",
+    fontWeight: "bolder",
+    fontSize: "70px",
+    textAlign: "right"
+}, */
+
+.hrSomething {
+    width: 200px;
+    align: right;
+    background-color: gold;
+    margin-right: 0px;
+}
+/* hrSomething: {
+    width: "200px",
+    align: "right",
+    backgroundColor: "gold",
+    marginRight: "0px"
+}, */
+
+.title {
+    text-align: right;
+    color: white;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    /*border-right: .15em solid orange;  The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em;  */
+    /* Adjust as needed */
+    /* animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite; */
+}
+/* title: {
+    textAlign: "right",
+    color: "white"
+} */
+
+.paragraph {
+    font-size: 30px;
+    /* font-weight: 700; */
+    text-align: center;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    /* letter-spacing: .15em;  */
+    /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #21252b; }
+}
+
+@media only screen and (max-width: 1700px) {
+    .rightColumnHeader {
+        font-size: 50px;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .rightColumnHeader {
+        font-size: 40px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .root {
+        display: block;
+    }
+
+    .leftColumn {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .rightColumnOuterDiv {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .rightColumnHeader {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+}

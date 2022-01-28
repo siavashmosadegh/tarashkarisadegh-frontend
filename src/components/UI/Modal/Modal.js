@@ -20,12 +20,12 @@ class Modal extends Component  {
                         position: "fixed",
                         zIndex: "500",
                         backgroundColor: "white",
-                        width: "70%",
+                        width: "30%",
                         border: "1px solid #ccc",
                         boxShadow: "1px 1px 1px black",
                         padding: "16px",
-                        left: "15%",
-                        top: "30%",
+                        left: "35%",
+                        top: "10%",
                         boxSizing: "border-box",
                         transition: "all 0.3s ease-out"
                     }}>

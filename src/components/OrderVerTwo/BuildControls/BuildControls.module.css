@@ -1,0 +1,46 @@
+/* root: {
+    //textAlign: "center",
+    padding: "50px",
+    // display: "flex",
+    // justifyContent: "center"
+},
+
+orderNowButtonDiv : {
+    display: "flex",
+    justifyContent: "center"
+},
+
+button: {
+    width: "200px",
+    height: "100px"
+} */
+.root {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.orderNowButtonDiv {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    background-color: green;
+    color: white;
+    width: 200px;
+    height: 100px;
+}
+
+@media only screen and (max-width: 1500px) {
+    .root {
+        grid-template-columns: 33% 33% 33%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .root {
+        grid-template-columns: 50% 50%;
+    }
+}

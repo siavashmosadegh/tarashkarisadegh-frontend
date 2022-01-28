@@ -1,6 +1,9 @@
 import React from 'react';
 import BuildControl from './BuildControl/BuildControl';
 import myStyle from './style';
+import BuildControlVerTwo from './BuildControlVerTwo/BuildControlVerTwo';
+import classes from './BuildControls.module.css';
+
 // disk: 1,
 //             tooppi: 1,
 //             excel: 2,
@@ -24,23 +27,26 @@ const buildControls = (props) => {
     const style = myStyle();
 
     return (
-        <div className={style.root}>
-            {pieces.map(ctrl => (
-                <BuildControl
-                    key={ctrl.label}
-                    label={ctrl.label}
-                    added={() => props.orderablePieceAdded(ctrl.type)}
-                    removed={() => props.orderablePieceRemoved(ctrl.type)}
-                    disabled={props.disabled[ctrl.type]}
-                />
-            ))}
+        <div>
+            <div className={classes.root}>
+                {pieces.map(ctrl => (
+                    <BuildControlVerTwo
+                        key={ctrl.label}
+                        label={ctrl.label}
+                        type={ctrl.type}
+                        added={() => props.orderablePieceAdded(ctrl.type)}
+                        removed={() => props.orderablePieceRemoved(ctrl.type)}
+                        disabled={props.disabled[ctrl.type]}
+                    />
+                ))}
+            </div>
 
-            <div className={style.orderNowButtonDiv}>
+            <div className={classes.orderNowButtonDiv}>
                 <button
-                    className={style.button}
+                    className={classes.button}
                     disabled={!props.orderable}
                     onClick={props.ordered}
-                >ORDER NOW!</button>
+                >ثبت سفارش</button>
             </div>
         </div>
     );

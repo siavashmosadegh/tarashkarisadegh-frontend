@@ -1,22 +1,20 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import myStyle from './style';
 import {Link} from 'react-router-dom';
+import classes from './MainPageServicesItem.module.css';
 
-function MainPageServicesItem (props) {
-
-    const style = myStyle();
+const MainPageServicesItem = (props) => {
 
     return (
-        <div>
-            <h1 className={style.header}>{props.header}</h1>
+        <div className={classes.root}>
+            <h1 className={classes.header}>{props.header}</h1>
             <br></br>
-            <p className={style.paragraf}>{props.paragraf}</p>
+            <p className={classes.paragraf}>{props.paragraf}</p>
             <br></br>
             <br></br>
 
             <Link to={props.routing}>
-                <Button variant="success" className={style.knowMoreButton}>بیشتر بدانید</Button>
+                <Button variant="success" className={classes.knowMoreButton}>بیشتر بدانید</Button>
             </Link>
         </div>
     );

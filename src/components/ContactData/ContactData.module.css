@@ -1,19 +1,27 @@
+
+.belownav {
+    background-color: #21252b;
+}
+
 .ContactData {
     margin: 20px auto;
-    width: 80%;
+    width: 50%;
     text-align: center;
     /* box-shadow: 0 2px 3px #ccc;
     border: 1px solid #eee; */
-    padding: 10px;
+    padding: 50px;
     box-sizing: border-box;
+    border-style: dashed;
 }
 
 .FirstHeader {
     text-align: center;
+    color: white;
 }
 
 .SecondHeader {
     text-align: center;
+    color: white;
 }
 
 .GoToLoginButtonDiv {
@@ -36,12 +44,71 @@
     text-align: center;
     font-weight: bolder;
     font-size: 30px;
-    width: 100px;
+    width: 150px;
     height: auto;
-}   
+}  
 
-@media (min-width: 600px) {
+.Username {
+    text-align: center;
+    color: white;
+}
+
+.nntsiroot {
+    color: white;
+}
+
+.nntsirow {
+    display: flex;
+}
+
+/* style={{width: "50%",textAlign: "right",borderStyle: "ridge",padding: "10px"}} */
+.nntsififty {
+    width: 50%;
+    text-align: right;
+    border-style: ridge;
+    padding: 10px;
+}
+
+/* width: "100%",textAlign: "right",borderStyle: "ridge",padding: "10px" */
+.nntsihundred {
+    width: 100%;
+    text-align: right;
+    border-style: ridge;
+    padding: 10px;
+}
+
+/* style={{fontSize: "22px",opacity: "0.5"}} */
+.nntsifirstparagraph {
+    font-size: 22px;
+    opacity: 0.5;
+}
+
+/* style={{fontSize: "30px",fontWeight: "bolder"}} */
+.nntsisecondparagraph {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 1200px) {
     .ContactData {
-        width: 700px;
+        width: 80%;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .nntsirow {
+        display: block;
+    }
+    .nntsififty {
+        width: 100%;
+    }
+    .ContactData {
+        width: 95%;
+    }
+}
+
+/* @media max-width: 600px) {
+    .ContactData {
+        width: 50%;
+    }
+} */

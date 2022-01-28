@@ -1,0 +1,34 @@
+.headerr {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 50px;
+}
+/* headerr: {
+    paddingTop: "30px",
+    textAlign: "center",
+    fontSize: "50px"
+}, */
+.headerrrr {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.belownav {
+    min-height: 800px;
+    background-color: #21252b;
+    color: white;
+}
+/* headerrrr: {
+    paddingTop: "30px",
+    textAlign: "center",
+    fontSize: "25px"
+},
+orderButton: {
+    width: "100%",
+    height: "75px"
+},
+profileButton: {
+    width: "100%",
+    height: "75px"
+} */

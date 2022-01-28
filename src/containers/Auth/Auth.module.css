@@ -1,19 +1,70 @@
+
+.rooter {
+    display: flex;
+    min-height: 800px;
+}
+
+.imagediv {
+    width: 50%;
+    height: auto;
+    background-image: url("/src/image/lathe7.jpg");
+    background-position: center;  
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.root {
+    width: 50%;
+    height: auto;
+    background-color: #21252b;
+}
+
+.insideroot {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    height: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+    .rooter {
+        display: block;
+    }
+
+    .root {
+        width: 100%;
+        height: auto;
+    }
+
+    .imagediv {
+        width: 100%;
+        height: auto;
+    };
+}
+
 .Auth{
-    margin: 20px auto;
+    background-color: darkblue;
+    margin: auto;
     width: 80%;
     text-align: center;
-    box-shadow: 0 2px 3px #ccc;
-    border: 1px solid #eee;
+    /* box-shadow: 0 2px 3px #ccc; */
+    box-shadow: 10px 10px red;
+    border: 5px solid #eee;
     padding: 10px;
     box-sizing: border-box;
 }
 
 .header {
     text-align: center;
+    color: white;
+    font-size: 72px;
+    font-weight: bolder;
 }
 
 .paragraph {
     text-align: center;
+    color: white;
+    font-size: 30px;
 }
 
 .goToButtonDiv {

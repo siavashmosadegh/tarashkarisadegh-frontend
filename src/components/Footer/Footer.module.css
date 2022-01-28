@@ -1,0 +1,33 @@
+/* root: {
+    padding: "30px",
+    color: "white",
+    backgroundColor: "#21252b"
+}, */
+.root {
+    padding: 30px;
+    color: white;
+    background-color: #21252b;
+}
+
+/* social: {
+    display: "flex",
+    justifyContent: "flex-end"
+}, */
+.social {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* header: {
+    textAlign: "right"
+}, */
+.header {
+    text-align: right;
+}
+
+/* paragraff: {
+    textAlign: "right"
+} */
+.paragraff {
+    text-align: right;
+}

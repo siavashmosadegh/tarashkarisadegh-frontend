@@ -1,0 +1,103 @@
+/* notImageColumn : {
+    paddingTop: "70px",
+    textAlign: "right",
+    backgroundColor: "#ffffcc"
+}, */
+.notImageColumn {
+    padding-top: 70px;
+    text-align: right;
+    background-color: #ffffcc;
+    border-radius: 50px;
+}
+
+.leftDiv {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: auto;
+}
+.rightDiv {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    height: auto;;
+}
+/* imageItself : {
+    width: "100%",
+    height: "auto",
+} */
+.imageItself {
+    width: 100%;
+    height: auto;
+    border-radius: 50px;
+}
+
+.servicesdiv {
+    background-color: #21252b;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1350px) {
+    .leftDiv {
+        width: 45%;
+    }
+    .rightDiv {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .leftDiv {
+        width: 50%;
+        padding: 10px;
+    }
+    .rightDiv {
+        width: 50%;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .row {
+        display: block;
+    }
+    .leftDiv {
+        width: 100%;
+    }
+    .rightDiv {
+        width: 100%;
+    }
+}
+
+/* @media only screen and (max-width: 1600px) {
+    .leftDiv {
+    padding: 100px;        
+    }
+    .rightDiv {
+    padding: 100px;
+    }
+} */
+
+/* @media only screen and (max-width: 1500px) {
+    .leftDiv {
+        padding: 50px;    
+    }
+    .rightDiv {
+        padding: 50px;      
+    }
+} */
+
+@media only screen and (max-width: 1200px) {
+    .leftDiv {
+        padding: 25px;
+    }
+    .rightDiv {
+        padding: 25px;
+    }
+}

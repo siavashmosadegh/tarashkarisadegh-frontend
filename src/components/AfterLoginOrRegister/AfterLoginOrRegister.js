@@ -1,33 +1,57 @@
-import React from 'react';
-import {Container , Row , Col , Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
-import myStyle from './style';
+import React , {Component} from 'react';
+import AfterAuthNavBar from '../AfterAuthNavBar/AfterAuthNavBar';
+import classes from './AfterLoginOrRegister.module.css';
+import {connect} from 'react-redux';
+import * as actions from '../../store/actions/index';
+import Line from '../Line/Line';
 
-function AfterLoginOrRegister (props) {
+class AfterLoginOrRegister extends Component {
 
-    const style = myStyle();
+    componentDidMount () {
+        this.props.onInitContactData(this.props.token, localStorage.getItem('userId'));
+    }
 
-    return (
-        <div>
-            <h1 className={style.headerr}>خوش آمدید</h1>
+    render () {        
+        return (
+            <div className={classes.root}>
+                <AfterAuthNavBar />
 
-            <Container>
-                <Row>
-                    <Col md={6}>
-                        <Link to="/order">
-                            <Button variant="success" className={style.orderButton}>ثبت سفارش جدید</Button>
-                        </Link>
-                    </Col>
+                <Line />
 
-                    <Col md={6}>
-                        <Link to="/profile">
-                            <Button variant="success" className={style.profileButton}>ویرایش اطلاعات پروفایل</Button>
-                        </Link>
-                    </Col>
-                </Row>
-            </Container>
-        </div>
-    );
+                <div className={classes.belownav}>
+                    <h1 className={classes.headerr}>خوش آمدید</h1>
+
+                    <br></br>
+        
+                    <h4 className={classes.headerrrr}>اگر هنوز اطلاعات کاربری خود را تکمیل نکرده اید ، به ویرایش پروفایل بروید و اطلاعات خود را ثبت کنید</h4>
+        
+                    <br></br>
+        
+                    <h4 className={classes.headerrrr}>بعد از اینکه اطلاعات خود را ثبت کردید میتوانید از طریق منوی ثبت سفارش ، سفارش خود را ثبت کنید</h4>
+
+                    <br></br>
+
+                    <h4 className={classes.headerrrr}>همچنین پس از ثبت سفارش میتوانید از منوی سفارش های من سفارش هایی که ثبت کرده اید را ببینید</h4>
+                </div>
+
+                <Line />
+    
+            </div>
+        );
+    }
+
 }
 
-export default AfterLoginOrRegister;
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onInitContactData: (token, userId) => dispatch( actions.fetchContactdata(token,userId))        
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(AfterLoginOrRegister);

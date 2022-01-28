@@ -1,7 +1,7 @@
 import React from 'react';
 import myStyle from './style';
 import OrderablePiece from './OrderablePiece/OrderablePiece';
-
+import classes from './OrderVerTwo.module.css';
 const orderVerTwo = (props) => {
 
     let transformedPiece = Object.keys(props.orderablePieceProps)
@@ -14,16 +14,18 @@ const orderVerTwo = (props) => {
             return arr.concat(el)
         },[]);
     if (transformedPiece.length === 0) {
-        transformedPiece = <p>Please Start adding ingredients</p>
+        transformedPiece = <p style={{fontSize: "40px"}}>سفارش خود را تعیین کنید</p>
     }
 
     //console.log(props.orderablePieceProps);
 
-    const style = myStyle();
+    // const classes = myclasses();
 
     return (
-        <div className={style.root}>
-            {transformedPiece}
+        <div className={classes.roottwo}>
+            <div className={classes.root}>
+                {transformedPiece}
+            </div>
         </div>
     );
 }

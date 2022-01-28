@@ -1,0 +1,64 @@
+
+.root {
+    height: 600px;
+    border-style: double;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.imagediv {
+    height: auto;
+    width: 50%;
+}
+
+.outerimagediv {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    align-items: center;
+}
+
+/* .headerdiv {
+    width: 500px;
+    height: 250px;
+} */
+
+.header {
+    margin: 20px;
+    font-size: 40px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more {
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.less {
+    /* margin-left: 10px; */
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.moreandlessdiv {
+    display: flex;
+    justify-content: space-around;
+}
+

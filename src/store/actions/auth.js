@@ -1,4 +1,3 @@
-
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 
@@ -8,10 +7,10 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token, userId) => {
+export const authSuccess = (tokenId, userId) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
-        idToken: token,
+        tokenId: tokenId,
         userId: userId
     };
 };
@@ -27,16 +26,17 @@ export const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
     localStorage.removeItem('userId');
+    localStorage.removeItem('contactname');
     return {
         type: actionTypes.AUTH_LOGOUT
     };
 };
 
-export const checkAuthTimeOut = (expirationTime) => {
+export const checkAuthTimeOut = (expirationTimeee) => {
     return dispatch => {
         setTimeout( () => {
             dispatch(logout());
-        }, expirationTime * 1000); 
+        }, expirationTimeee * 1000); 
     };
 };
 
@@ -49,9 +49,11 @@ export const auth = (email, password, isSignup) => {
             returnSecureToken: true
         }
 
-        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s';
+        let url = 'http://162.55.9.246/api/v1/customer/signup'
+        // let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s';
         if (!isSignup) {
-            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s'
+            // url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s'
+            url = 'http://162.55.9.246/api/v1/customer/signin'
         }
         axios.post(url,authData)
             .then(response => {
@@ -60,11 +62,19 @@ export const auth = (email, password, isSignup) => {
                 localStorage.setItem('token', response.data.idToken);
                 localStorage.setItem('expirationDate', expirationDate);
                 localStorage.setItem('userId', response.data.localId);
+                console.log(response.data.idToken);
+                console.log(response.data.localId);
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeOut(response.data.expiresIn));
             })
             .catch(err => {
-                dispatch(authFail(err.response.data.error));
+                //console.log(err.response.data.error);
+                // dispatch(authFail(err.response.data.error));
+                //dispatch(authFail(err.data.error));
+
+                // console.log(err);
+                console.log(err.response.data.error.message);
+                dispatch(authFail(err.response.data.error.message));
             });
     };
 };
@@ -76,6 +86,7 @@ export const authCheckState = () => {
             dispatch(logout());
         } else {
             const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            console.log(localStorage.getItem('expirationDate'));
             if (expirationDate <= new Date()) {
                 dispatch(logout());
             } else {

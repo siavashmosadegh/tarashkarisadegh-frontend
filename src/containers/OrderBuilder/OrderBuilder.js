@@ -4,10 +4,14 @@ import BuildControls from '../../components/OrderVerTwo/BuildControls/BuildContr
 import Modal from '../../components/UI/Modal/Modal';
 //import myStyle from './style';
 import OrderSummary from '../../components/OrderVerTwo/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
+//import axios from '../../axios-orders';
+import axios from 'axios';
 import Aux from '../../hoc/Aux/Aux';
 import {connect} from 'react-redux';
-import NavigationBar from '../../components/NavigationBar/NavigationBar';
+//import NavigationBar from '../../components/NavigationBar/NavigationBar';
+import AfterAuthNavBar from '../../components/AfterAuthNavBar/AfterAuthNavBar';
+import * as actions from '../../store/actions/index';
+
 class OrderBuilder extends Component {
 
     // state = {
@@ -32,6 +36,14 @@ class OrderBuilder extends Component {
             weldingWork: 0,
             cutOffPitchWork: 0
         },
+        time : {
+            seconds: null,
+            minutes: null,
+            hours: null,
+            day: null,
+            month: null,
+            year: null
+        },
         ordering: false,
         orderable: false,
         extraExplaination: null,
@@ -39,13 +51,16 @@ class OrderBuilder extends Component {
     }
 
     componentDidMount () {
-        axios.get('https://tarashkari-test-one-default-rtdb.firebaseio.com/repairables.json?auth='+this.props.token)
+        axios.get('http://162.55.9.246/api/v1/customer/repairables?auth='+localStorage.getItem('token'))
             .then(response => {
                 this.setState({repairables: response.data});
             })
             .catch(error => {
                 this.setState({error: true});
             });
+        console.log(this.props.token);
+        console.log(localStorage.getItem('userId'));
+        this.props.onInitContactData(localStorage.getItem('token'), localStorage.getItem('userid'));
     }
 
     // componentDidUpdate () {
@@ -113,24 +128,46 @@ class OrderBuilder extends Component {
 
     purchaseContinueHandler = () => {
         alert('You continued!');
-        // const order = {
-        //     repairables: this.state.repairables,
-        //     customer : {
-        //         name: 'kiomars mechanic',
-        //         address: {
-        //             city: 'nasim shahr',
-        //             neighborhood: 'esmaeil abad',
-        //             street: 'reza kazemi',
-        //             pelak: '2'
-        //         },
-        //         email: 'test@test.com'
-        //     },
-        //     deliveryPerson: 'mammad agha'
-        // }
-        axios.post('/orders.json?auth='+this.props.token, this.state.repairables)
+
+        let rightNow = new Date();
+        let year = rightNow.getFullYear();
+        let month = rightNow.getMonth() + 1;
+        let day = rightNow.getDate();
+        let hour = rightNow.getHours();
+        let minute = rightNow.getMinutes();
+        let second = rightNow.getSeconds();
+
+        const order = {
+            repairables: this.state.repairables,
+            contactdata : {
+                address: this.props.contactdataAddress,
+                nameOfTheBusiness: this.props.contactdataNameOfTheBusiness,
+                ownerFirstAndLastName: this.props.contactdataOwnerFirstAndLastName,
+                ownerMobileNumber: this.props.contactdataOwnerMobileNumber,
+                telephone: this.props.contactdataTelephone
+            },
+            time : {
+                year,
+                month,
+                day,
+                hour,
+                minute,
+                second
+            },
+            userId: localStorage.getItem('userId')
+        }
+
+        // axios.post('/orders.json?auth='+this.props.token, this.state.repairables)
+        //     .then(response => console.log(response))
+        //     .catch(error => console.log(error));
+        // axios.post('https://tarashkari-panel-admin-default-rtdb.firebaseio.com/Orders.json',order)
+        axios.post('http://162.55.9.246/api/v1/customer/orders',order)
             .then(response => console.log(response))
             .catch(error => console.log(error));
 
+        axios.post('https://tarashkari-test-one-default-rtdb.firebaseio.com/OrdersTwo.json',order)
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
     }
 
     render () {
@@ -150,9 +187,9 @@ class OrderBuilder extends Component {
             order = (
                 <Aux>
                     <OrderVerTwo orderablePieceProps={this.state.repairables} />
-                    <div style={{display: "flex",justifyContent: "flex-end"}}>
+                    {/* <div style={{display: "flex",justifyContent: "flex-end"}}>
                         <img src="/image/pickup.jpg" alt="aks" />
-                    </div>
+                    </div> */}
                     <BuildControls
                         orderablePieceAdded={this.addOrderablePieceHandler}
                         orderablePieceRemoved={this.removeOrderablePieceHandler}
@@ -174,7 +211,8 @@ class OrderBuilder extends Component {
 
         return (
             <div>
-                <NavigationBar isAuthenticated={this.props.isAuthenticated}/>
+                {/* <NavigationBar isAuthenticated={this.props.isAuthenticated}/> */}
+                <AfterAuthNavBar />
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
                     {orderSummary}
                 </Modal>
@@ -187,8 +225,21 @@ class OrderBuilder extends Component {
 const mapStateToProps = state => {
     return {
         token: state.auth.token,
-        isAuthenticated: state.auth.token !== null
-    }
+        isAuthenticated: state.auth.token !== null,
+        contactdataAddress: state.contactdata.address,
+        contactdataNameOfTheBusiness: state.contactdata.nameOfTheBusiness,
+        contactdataOwnerFirstAndLastName: state.contactdata.ownerFirstAndLastName,
+        contactdataOwnerMobileNumber: state.contactdata.ownerMobileNumber,
+        contactdataTelephone: state.contactdata.telephone
+    };
 }
 
-export default connect(mapStateToProps)(OrderBuilder);
+const mapDispatchToProps = dispatch => {
+    return {
+        onInitContactData: (token, userId) => dispatch( actions.fetchContactdata(token,userId))
+    };
+};
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(OrderBuilder);

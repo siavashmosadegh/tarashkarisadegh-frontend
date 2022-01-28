@@ -1,0 +1,27 @@
+.root {
+    width: 100%;
+    height: auto;
+    color: black;
+    text-align: center;
+    background-color: bisque;
+    padding: 50px;
+    border-radius: 50px;
+}
+/* header: {
+    fontWeight: "bold"
+}, */
+.header {
+    font-weight: bold;
+}
+/* paragraf: {
+    fontSize: "30px"
+}, */
+.paragraf {
+    font-size: 30px;
+}
+/* knowMoreButton: {
+    fontSize: "30px"
+} */
+.knowMoreButton {
+    font-size: 30px;
+}

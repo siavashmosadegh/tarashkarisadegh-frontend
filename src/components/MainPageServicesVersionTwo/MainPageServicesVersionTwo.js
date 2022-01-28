@@ -1,56 +1,57 @@
 import React from 'react';
-import { Container , Col , Row } from 'react-bootstrap';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import MainPageServicesItem from './MainPageServicesItem/MainPageServicesItem';
-import myStyle from './style';
+import classes from './MainPageServicesVersionTwo.module.css';
 
-function MainPageServicesVersionTwo () {
-
-    const style = myStyle();
+const MainPageServicesVersionTwo = () => {
 
     return (
         <div>
             <NavigationBar />
-            
-            <Container>
-                <Row>
-                    <Col md={6} className={style.notImageColumn}>
+
+            <div className={classes.servicesdiv}>
+
+                <div className={classes.row}>
+
+                    <div className={classes.leftDiv}>
                         <MainPageServicesItem header="انواع تعمیرات سیلندر" paragraf="تراشکاری صادق با در دست داشتن انواع دستگاه های مربوط به تعمیرات سیلندر ، قادر به تعمیر انواع سیلندر های خودرو های مختفف میباشد."
                         routing="/cylinder"/>
-                    </Col>
-
-                    <Col md={6}>
-                        <img src="/image/peugeotcylinder.jpg" alt="cylinder" className={style.imageItself}></img>
-                    </Col>
-                </Row>
+                    </div>
+                    
+                    <div className={classes.rightDiv}>
+                        <img src="/image/peugeotcylinder.jpg" alt="cylinder" className={classes.imageItself}></img>                    
+                    </div>
+                </div>
 
                 <br></br>
                 <br></br>
 
-                <Row>
-                    <Col md={6}>
-                        <img src="/image/cylinderhead.jpg" alt="cylinderhead" className={style.imageItself}></img>
-                    </Col>
+                <div className={classes.row}>
 
-                    <Col md={6} className={style.notImageColumn}>
+                    <div className={classes.leftDiv}>
+                        <img src="/image/cylinderhead.jpg" alt="cylinderhead" className={classes.imageItself}></img>
+                    </div>
+
+                    <div className={classes.rightDiv}>
                         <MainPageServicesItem header="انواع تعمیرات سیلندر" paragraf="تراشکاری صادق با در دست داشتن انواع دستگاه های مربوط به تعمیرات سیلندر ، قادر به تعمیر انواع سیلندر های خودرو های مختفف میباشد."
                         routing="/cylinderhead"/>
-                    </Col>
-                </Row>
+                    </div>
+                </div>
 
                 <br></br>
                 <br></br>
 
-                <Row>
-                    <Col md={6}>
+                <div className={classes.row}>
+
+                    <div className={classes.leftDiv}>
                         <MainPageServicesItem header="تراش و تعمیر قطعات داخلی خودرو" paragraf="تراشکاری ما با استفاده از مدرن ترین دستگاه های تراش انواع قطعات داخلی مثل توپی ، دیسک و غیره را تعمیر میکند"/>
-                    </Col>
+                    </div>
 
-                    <Col md={6}>
-                        <img src="/image/tooppi.jpg" alt="tooppi" className={style.imageItself} />
-                    </Col>
-                </Row>
-            </Container>
+                    <div className={classes.rightDiv}>
+                        <img src="/image/tooppi.jpg" alt="tooppi" className={classes.imageItself} />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

@@ -3,13 +3,29 @@ import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import Spinner from '../UI/Spinner/Spinner';
 import classes from './ContactData.module.css';
-import axios from '../../axios-orders';
+//import axios from '../../axios-orders';
+import axios from 'axios';
 import Input from '../UI/Input/Input';
-import NavigationBar from '../NavigationBar/NavigationBar';
+import AfterAuthNavBar from '../AfterAuthNavBar/AfterAuthNavBar';
+import {connect} from 'react-redux';
+import Line from '../Line/Line';
 
 class ContactData extends Component {
     state = {
         registerForm: {
+            // email: {
+            //     elementType: 'input',
+            //     elementConfig: {
+            //         type: 'text',
+            //         placeholder: 'آدرس ایمیل'
+            //     },
+            //     value: localStorage.getItem('userId'),
+            //     validation: {
+            //         required: true
+            //     },
+            //     valid: false,
+            //     touched: false
+            // },
             ownerFirstAndLastName: {
                 elementType: 'input',
                 elementConfig: {
@@ -23,34 +39,20 @@ class ContactData extends Component {
                 valid: false,
                 touched: false
             },
-            username: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'نام کاربری'
-                },
-                value: '',
-                validation: {
-                    required: true,
-                    minLength: 8
-                },
-                valid: false,
-                touched: false
-            },
-            password: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'password',
-                    placeholder: 'گذرواژه'
-                },
-                value: '',
-                validation: {
-                    required: true,
-                    minLength: 8
-                },
-                valid: false,
-                touched: false
-            },
+            // password: {
+            //     elementType: 'input',
+            //     elementConfig: {
+            //         type: 'password',
+            //         placeholder: 'گذرواژه'
+            //     },
+            //     value: '',
+            //     validation: {
+            //         required: true,
+            //         minLength: 8
+            //     },
+            //     valid: false,
+            //     touched: false
+            // },
             nameOfTheBusiness: {
                 elementType: 'input',
                 elementConfig: {
@@ -111,7 +113,19 @@ class ContactData extends Component {
             }
         },
         formIsValid: false,
-        loading: false
+        loading: false,
+        noNeedToSendInfo: null
+    }
+
+    componentDidMount () {
+
+        if (localStorage.getItem('contactname') == null) {
+            this.setState({noNeedToSendInfo: false})
+        } else {
+            this.setState({noNeedToSendInfo: true});
+        }
+
+        console.log("REEEEELLLLLLLLOOOOOOOOOOOOOOAAAAAAAAADDDDDDDDD");
     }
 
     orderHandler = ( event ) => {
@@ -186,7 +200,68 @@ class ContactData extends Component {
         this.setState({registerForm: updatedregisterForm, formIsValid: formIsValid});
     }
 
+    // formIsNeeded = () => {
+    //     if (this.props.contactdataAddress == "") 
+    //         this.setState({noNeedToSendInfo: false});
+    //     else 
+    //         this.setState({noNeedToSendInfo: true});
+    // }
+
+    infoHasBeenCompleted = () => {
+
+        // const order = {
+        //     repairables: this.state.repairables,
+        //     customer : {
+        //         name: 'kiomars mechanic',
+        //         address: {
+        //             city: 'nasim shahr',
+        //             neighborhood: 'esmaeil abad',
+        //             street: 'reza kazemi',
+        //             pelak: '2'
+        //         },
+        //         email: 'test@test.com'
+        //     },
+        //     deliveryPerson: 'mammad agha'
+        // }
+
+
+        const contactData = {
+            userId : localStorage.getItem('userId'),
+            ownerFirstAndLastName : this.state.registerForm.ownerFirstAndLastName.value,
+            nameOfTheBusiness : this.state.registerForm.nameOfTheBusiness.value,
+            telephone : this.state.registerForm.telephone.value,
+            ownerMobileNumber: this.state.registerForm.ownerMobileNumber.value,
+            address : this.state.registerForm.address.value
+        }
+
+        // axios.post('https://tarashkari-test-one-default-rtdb.firebaseio.com/contactdata.json?auth='+localStorage.getItem('token'),contactData)
+        axios.post('http://162.55.9.246/api/v1/customer/contactdata?auth='+localStorage.getItem('token'),contactData)
+            .then( response => {
+                console.log(response);
+                //this.props.history.push( '/' );
+            } )
+            .catch( error => {
+                console.log(error);
+            } );
+    }
+
     render () {
+
+        let secondHeader = (
+            <div>
+                <h4 className={classes.SecondHeader}>فرم زیر را تکمیل کنید تا به صفحه ی ثبت سفارش منتقل شوید</h4>
+                <br></br>
+            </div>
+        );
+
+        console.log(this.props.contactdataOwnerFirstAndLastName);
+        console.log(this.props.contactdataOwnerMobileNumber);
+        console.log(this.props.contactdataTelephone);
+        console.log(this.props.contactdataNameOfTheBusiness);
+        console.log(this.props.contactdataAddress);
+
+        console.log(this.state.noNeedToSendInfo);
+
         const formElementsArray = [];
         for (let key in this.state.registerForm) {
             formElementsArray.push({
@@ -195,7 +270,7 @@ class ContactData extends Component {
             });
         }
         let form = (
-            <form onSubmit={this.orderHandler}>
+            <form>
                 {formElementsArray.map(formElement => (
                     <Input 
                         key={formElement.id}
@@ -208,8 +283,8 @@ class ContactData extends Component {
                         changed={(event) => this.inputChangedHandler(event, formElement.id)} />
                 ))}
                 <div className={classes.LoginButtonDiv}>
-                    <Link to="/afterloginorregister">
-                        <Button variant="success" className={classes.LoginButton} disabled={!this.state.formIsValid}>ثبت نام</Button>
+                    <Link to="/staff">
+                        <Button variant="success" onClick={this.infoHasBeenCompleted} className={classes.LoginButton} disabled={!this.state.formIsValid}>ثبت اطلاعات</Button>
                     </Link>
                 </div>
             </form>
@@ -217,34 +292,86 @@ class ContactData extends Component {
         if ( this.state.loading ) {
             form = <Spinner />;
         }
+        if ( this.state.noNeedToSendInfo ) {
+            form = (
+                <div className={classes.nntsiroot}>
+                    <div className={classes.nntsirow}>
+                        <div className={classes.nntsififty}>
+                            <p className={classes.nntsifirstparagraph}>: نام و نام خانوادگی صاحب کسب و کار</p>
+                            <p className={classes.nntsisecondparagraph}>{this.props.contactdataOwnerFirstAndLastName}</p>
+                        </div>
+                        <div className={classes.nntsififty}>
+                            <p className={classes.nntsifirstparagraph}>: شماره موبایل</p>
+                            <p className={classes.nntsisecondparagraph}>{this.props.contactdataOwnerMobileNumber}</p>
+                        </div>
+                    </div>
+
+                    <div className={classes.nntsirow}>
+                        <div className={classes.nntsififty}>
+                            <p className={classes.nntsifirstparagraph}>: تلفن ثابت مغازه</p>
+                            <p className={classes.nntsisecondparagraph}>{this.props.contactdataTelephone}</p>
+                        </div>
+                        <div className={classes.nntsififty}>
+                            <p className={classes.nntsifirstparagraph}>: نام مکانیکی</p>
+                            <p className={classes.nntsisecondparagraph}>{this.props.contactdataNameOfTheBusiness}</p>
+                        </div>
+                    </div>
+
+                    <div className={classes.nntsirow}>
+                        <div className={classes.nntsihundred}>
+                            <p className={classes.nntsifirstparagraph}>: آدرس</p>
+                            <p className={classes.nntsisecondparagraph}>{this.props.contactdataAddress}</p>
+                        </div>
+                    </div>
+                </div>                
+            );
+            secondHeader = null;
+        }
         return (
             <div>
-                <NavigationBar />
+                <AfterAuthNavBar />
                 
-                <br></br>
-                <br></br>
+                <Line />
+                <Line />
+
+                <div className={classes.belownav}>
+                    <h1 className={classes.FirstHeader}>اطلاعات پروفایل</h1>
+
+                    <br></br>
+
+                    {secondHeader}
+                    
+                    {/* <div className={classes.GoToLoginButtonDiv}>
+                        <Link to="/login">
+                            <Button variant="warning" className={classes.GoToLoginButton}>هدایت به صفحه ی ورود به حساب</Button>
+                        </Link>
+                    </div> */}
+
+                    <h6 className={classes.Username}>{localStorage.getItem('userId')} : نام کاربری شما </h6>
+
+                    <div className={classes.ContactData}>
+                        {/* <h4>Enter your Contact Data</h4> */}
+                        {form}
+                    </div>
+                </div>
             
-                <h1 className={classes.FirstHeader}>ایجاد حساب کاربری</h1>
-
-                <br></br>
-
-                <h6 className={classes.SecondHeader}>اگر حساب کاربری ایجاد کردید دکمه ی پایین را بزنید تا به صفحه ی ورود به حساب منقتل شوید</h6>
-
-                <br></br>
-                
-                <div className={classes.GoToLoginButtonDiv}>
-                    <Link to="/login">
-                        <Button variant="warning" className={classes.GoToLoginButton}>هدایت به صفحه ی ورود به حساب</Button>
-                    </Link>
-                </div>
-
-                <div className={classes.ContactData}>
-                    {/* <h4>Enter your Contact Data</h4> */}
-                    {form}
-                </div>
             </div>
         );
     }
 }
 
-export default ContactData;
+const mapStateToProps = state => {
+    return {
+        // loading: state.auth.loading,
+        // error: state.auth.error,
+        // isAuthenticated: state.auth.token !== null
+        token: state.auth.token,
+        contactdataAddress: state.contactdata.address,
+        contactdataNameOfTheBusiness: state.contactdata.nameOfTheBusiness,
+        contactdataOwnerFirstAndLastName: state.contactdata.ownerFirstAndLastName,
+        contactdataOwnerMobileNumber: state.contactdata.ownerMobileNumber,
+        contactdataTelephone: state.contactdata.telephone
+    }
+}
+
+export default connect(mapStateToProps)(ContactData);

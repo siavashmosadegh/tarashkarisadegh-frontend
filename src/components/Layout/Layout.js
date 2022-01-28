@@ -4,6 +4,7 @@ import {BrowserRouter , Route} from 'react-router-dom';
 import TheActualContactUs from '../TheActualContactUs/TheActualContactUs';
 // import Register from '../Register/Register';
 //import Login from '../Login/Login';
+import MyOrders from '../MyOrders/MyOrders';
 import MainPageServicesVersionTwo from '../MainPageServicesVersionTwo/MainPageServicesVersionTwo';
 import CylinderServices from '../ServicesSinglePages/CylinderServices/CylinderServices';
 import CylinderheadServices from '../ServicesSinglePages/CylinderheadServices/CylinderheadServices';
@@ -15,7 +16,7 @@ import Footer from '../Footer/Footer';
 import OrderBuilder from '../../containers/OrderBuilder/OrderBuilder';
 //import RegisterVerTwo from '../../components/RegisterVerTwo/RegisterVerTwo';
 import ContactData from '../../components/ContactData/ContactData';
-import LoginVerTwo from '../../components/LoginVerTwo/LoginVerTwo';
+//import LoginVerTwo from '../../containers/LoginVerTwo/LoginVerTwo';
 import Auth from '../../containers/Auth/Auth';
 import Logout from '../../containers/Auth/Logout/Logout';
 import Panel from '../../containers/Panel/Panel';
@@ -26,8 +27,9 @@ function Layout () {
             <BrowserRouter>
                 <Route path="/contactus" component={TheActualContactUs} />
                 <Route path="/register" component={Auth} />
-                <Route path="/login" component={LoginVerTwo} />
+                <Route path="/login" component={ContactData} />
                 <Route path="/services" component={MainPageServicesVersionTwo} />
+                <Route path="/myorders" component={MyOrders}/>
                 <Route path="/logout" component={Logout} /> 
                 <Route path="/cylinder" component={CylinderServices} />
                 <Route path="/cylinderhead" component={CylinderheadServices} />

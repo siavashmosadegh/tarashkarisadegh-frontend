@@ -1,0 +1,52 @@
+
+.root {
+    background-color: #21252b;
+}
+.googleMapsDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.condiv {
+    display: flex;
+    justify-content: center;
+}
+
+.conleftdiv {
+    width: 30%;
+    height: auto;
+}
+
+.conrightdiv {
+    width: 30%;
+    height: auto;
+}
+
+@media only screen and (max-width: 1350px) {
+    
+    .conleftdiv {
+        width: 45%;
+    }
+
+    .conrightdiv {
+        width: 45%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .condiv {
+        display: block;
+    }
+    
+    .conleftdiv {
+        padding: 20px;
+        width: 100%;
+        height: auto;
+    }
+    
+    .conrightdiv {
+        padding: 20px;
+        width: 100%;
+        height: auto;
+    }
+}

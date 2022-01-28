@@ -3,9 +3,9 @@ import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import axios from '../../axios-orders';
 import classes from './LoginVerTwo.module.css';
-import NavigationBar from '../NavigationBar/NavigationBar';
-import Input from '../UI/Input/Input';
-import Spinner from '../UI/Spinner/Spinner';
+import NavigationBar from '../../components/NavigationBar/NavigationBar'
+import Input from '../../components/UI/Input/Input';
+import Spinner from '../../components/UI/Spinner/Spinner';
 
 class LoginVerTwo extends Component {
     state = {
