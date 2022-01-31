@@ -20,3 +20,30 @@
     justify-content: center;
     align-items: center;
 }
+
+@media only screen and (max-width: 1350px) {
+    .MyOrders {
+      grid-template-columns: 100%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .MyOrders {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .MyOrders {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .MyOrders {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}

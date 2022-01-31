@@ -54,7 +54,7 @@ const AnotherHeader = () => {
 
 export default AnotherHeader;
 
-{/* <Row>
+/* <Row>
     <Col md={12} className={style.rightColumn}>
         <h1 className={style.rightColumnHeader}>بهترین ها را از ما بخواهید</h1>
 
@@ -67,4 +67,4 @@ export default AnotherHeader;
                 
         <h4 className={style.title}>تراشکاری و میل لنگ تراشی صادق</h4>
     </Col>
-</Row> */}
+</Row> */

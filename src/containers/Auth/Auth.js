@@ -178,12 +178,13 @@ class Auth extends Component {
                 <NavigationBar isAuthenticated={this.props.isAuthenticated}/>
                 <div className={classes.rooter}>
                     <div className={classes.imagediv}>
+                        <img src="/image/lathe7.jpg" className={classes.image}/>
                     </div>
                     <div className={classes.root}>
                         <div className={classes.insideroot}>
                             <div>
-                                <br></br>
-                                <br></br>
+                                {/* <br></br>
+                                <br></br> */}
 
                                 <h1 className={classes.header}>
                                     {   
@@ -194,7 +195,7 @@ class Auth extends Component {
 
                                 <br></br>
                                 
-                                <div style={{paddingLeft: "120px",paddingRight: "120px"}}>
+                                <div className={classes.paragraphDiv}>
                                     <p className={classes.paragraph}>
                                         {
                                             this.state.isSignup ? 'اگر حساب کاربری دارید دکمه ی پایین را بزنید تا به صفحه ی ورود به حساب منتقل شوید'

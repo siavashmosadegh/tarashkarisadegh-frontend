@@ -1,16 +1,21 @@
 
 .rooter {
     display: flex;
-    min-height: 800px;
+    /* min-height: 600px; */
 }
 
 .imagediv {
     width: 50%;
-    height: auto;
-    background-image: url("/src/image/lathe7.jpg");
+    /* height: auto; */
+    /* background-image: url("/src/image/lathe7.jpg");
     background-position: center;  
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: cover;  */
+}
+
+.image {
+    width: 100%;
+    height: auto;
 }
 
 .root {
@@ -24,6 +29,53 @@
     justify-content: center;
     /* align-items: center; */
     height: 100%;
+}
+
+.Auth{
+    background-color: darkblue;
+    margin: auto;
+    width: 80%;
+    text-align: center;
+    /* box-shadow: 0 2px 3px #ccc; */
+    /* box-shadow: 10px 10px red; */
+    border: 5px solid #eee;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    font-size: 72px;
+    font-weight: bolder;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.paragraph {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+.paragraphDiv {
+    padding-left: 120px;
+    padding-right: 120px;
+}
+
+.goToButtonDiv {
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 1660px) {
+    .header {
+        font-size: 40px;
+    }
+
+    .paragraph {
+        font-size: 20px;
+    }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -42,38 +94,18 @@
     };
 }
 
-.Auth{
-    background-color: darkblue;
-    margin: auto;
-    width: 80%;
-    text-align: center;
-    /* box-shadow: 0 2px 3px #ccc; */
-    box-shadow: 10px 10px red;
-    border: 5px solid #eee;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.header {
-    text-align: center;
-    color: white;
-    font-size: 72px;
-    font-weight: bolder;
-}
-
-.paragraph {
-    text-align: center;
-    color: white;
-    font-size: 30px;
-}
-
-.goToButtonDiv {
-    display: flex;
-    justify-content: center;
-}
-
 @media (min-width: 600px) {
     .Auth {
         width: 500px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        font-size: 35px;
+    }
+
+    .paragraph {
+        font-size: 20px;
     }
 }
