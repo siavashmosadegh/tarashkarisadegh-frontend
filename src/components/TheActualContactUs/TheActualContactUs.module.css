@@ -15,11 +15,13 @@
 .conleftdiv {
     width: 30%;
     height: auto;
+    margin-right: 10px;
 }
 
 .conrightdiv {
     width: 30%;
     height: auto;
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 1350px) {

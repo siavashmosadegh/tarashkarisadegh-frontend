@@ -199,6 +199,7 @@ class ContactUsForm extends Component {
         return (
             <div className={classes.root}>
                 <div className={classes.insideroot}>
+                    <p className={classes.paragraph}>اگر ایده ی ساخت قطعه ای را مدنظر دارید یا در زمینه خاصی نیاز به مشاوره دارید فرم زیر را تکمیل کنید تا همکاران ما با شما تماس بگیرند</p>
                     {form}
                 </div>
             </div>

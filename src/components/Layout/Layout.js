@@ -20,7 +20,7 @@ import ContactData from '../../components/ContactData/ContactData';
 import Auth from '../../containers/Auth/Auth';
 import Logout from '../../containers/Auth/Logout/Logout';
 import Panel from '../../containers/Panel/Panel';
-
+import Cylinder from '../ServicesSinglePages/Cylinder/Cylinder';
 function Layout () {
     return (
         <div>
@@ -31,7 +31,7 @@ function Layout () {
                 <Route path="/services" component={MainPageServicesVersionTwo} />
                 <Route path="/myorders" component={MyOrders}/>
                 <Route path="/logout" component={Logout} /> 
-                <Route path="/cylinder" component={CylinderServices} />
+                <Route path="/cylinder" component={Cylinder} />
                 <Route path="/cylinderhead" component={CylinderheadServices} />
                 <Route path="/afterloginorregister" component={AfterLoginOrRegister} />
                 <Route path="/order" component={Order} />

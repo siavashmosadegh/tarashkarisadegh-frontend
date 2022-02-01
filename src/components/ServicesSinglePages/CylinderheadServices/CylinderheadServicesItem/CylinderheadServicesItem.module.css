@@ -27,3 +27,27 @@
     width: "100%",
     height: "auto"
 } */
+
+@media only screen and (max-width: 1800px) {
+    .root {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .root {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .header {
+        font-size: 25px;
+    }
+    .paragraf {
+        font-size: 15px;
+    }
+    .root {
+        padding: 20px;
+    }
+}
