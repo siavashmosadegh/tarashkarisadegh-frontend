@@ -24,17 +24,22 @@ const Footer = () => {
 
                         <div className={classes.social}>
                             <div>
-                                <a href="https://www.instagram.com/tarashkari_sadegh/">
+                                <a href="https://www.instagram.com/melang_tarashi_sadegh/">
                                     <InstagramIcon style={{ fontSize: 40 }} />
                                 </a>
-                                
-                                <YouTubeIcon style={{ fontSize: 40 }}/>
+
+                                <a href="https://www.youtube.com/channel/UCT3ORQT64ndL80wR6GeajVA">
+                                    <YouTubeIcon style={{ fontSize: 40 }}/>
+                                </a>
 
                                 <a href="https://twitter.com/tarashkari">
                                     <TwitterIcon style={{ fontSize: 40 }} />
                                 </a>
                                 
-                                <TelegramIcon style={{ fontSize: 40 }}/>
+                                <a href="https://t.me/sadeghmosadegh">
+                                    <TelegramIcon style={{ fontSize: 40 }}/>
+                                </a>
+                                
                                 <LinkedInIcon style={{ fontSize: 40 }}/>
                                 <WhatsAppIcon style={{ fontSize: 40 }}/>
                                 <FacebookIcon style={{ fontSize: 40 }}/>

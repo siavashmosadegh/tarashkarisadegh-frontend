@@ -78,6 +78,12 @@
     }
 }
 
+@media only screen and (max-width: 1400px) {
+    .paragraphDiv {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
 @media only screen and (max-width: 1200px) {
     .rooter {
         display: block;

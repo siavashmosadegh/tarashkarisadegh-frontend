@@ -4,6 +4,8 @@ import OrderablePiece from './OrderablePiece/OrderablePiece';
 import classes from './OrderVerTwo.module.css';
 const orderVerTwo = (props) => {
 
+    let style = classes.root;
+
     let transformedPiece = Object.keys(props.orderablePieceProps)
         .map( igKey => {
             return [...Array(props.orderablePieceProps[igKey])].map((_,i ) => {
@@ -14,7 +16,8 @@ const orderVerTwo = (props) => {
             return arr.concat(el)
         },[]);
     if (transformedPiece.length === 0) {
-        transformedPiece = <p style={{fontSize: "40px"}}>سفارش خود را تعیین کنید</p>
+        transformedPiece = <p>سفارش خود را تعیین کنید</p>
+        style = classes.rootkhali;
     }
 
     //console.log(props.orderablePieceProps);
@@ -23,7 +26,7 @@ const orderVerTwo = (props) => {
 
     return (
         <div className={classes.roottwo}>
-            <div className={classes.root}>
+            <div className={style}>
                 {transformedPiece}
             </div>
         </div>
