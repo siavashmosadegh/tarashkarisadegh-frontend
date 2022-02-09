@@ -35,7 +35,8 @@ const MyOrdersCell = (props) => {
                 </div>
 
                 <div className={classes.clockRow}>
-                    {props.time.year} , {props.time.month} , {props.time.day}
+                    {/* {props.time.year} , {props.time.month} , {props.time.day} */}
+                    {props.time.datee}
                 </div>
             </div>
         </div>

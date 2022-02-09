@@ -12,6 +12,9 @@ import {connect} from 'react-redux';
 import AfterAuthNavBar from '../../components/AfterAuthNavBar/AfterAuthNavBar';
 import * as actions from '../../store/actions/index';
 import Footer from '../../components/Footer/Footer';
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
 
 class OrderBuilder extends Component {
 
@@ -41,9 +44,7 @@ class OrderBuilder extends Component {
             seconds: null,
             minutes: null,
             hours: null,
-            day: null,
-            month: null,
-            year: null
+            date: null
         },
         ordering: false,
         orderable: false,
@@ -130,10 +131,14 @@ class OrderBuilder extends Component {
     purchaseContinueHandler = () => {
         alert('You continued!');
 
+        let dateformat = new DateObject({
+            date: new Date(),
+            calendar: persian,
+            locale: persian_fa,
+          });
+
         let rightNow = new Date();
-        let year = rightNow.getFullYear();
-        let month = rightNow.getMonth() + 1;
-        let day = rightNow.getDate();
+        let datee = dateformat.format();
         let hour = rightNow.getHours();
         let minute = rightNow.getMinutes();
         let second = rightNow.getSeconds();
@@ -148,9 +153,7 @@ class OrderBuilder extends Component {
                 telephone: this.props.contactdataTelephone
             },
             time : {
-                year,
-                month,
-                day,
+                datee,
                 hour,
                 minute,
                 second

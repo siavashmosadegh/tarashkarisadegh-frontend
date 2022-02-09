@@ -18,6 +18,7 @@
     "google-maps-react": "^2.0.6",
     "react": "^17.0.1",
     "react-bootstrap": "^1.5.1",
+    "react-date-object": "^2.1.5",
     "react-dom": "^17.0.1",
     "react-iframe": "^1.8.0",
     "react-redux": "^7.2.5",
