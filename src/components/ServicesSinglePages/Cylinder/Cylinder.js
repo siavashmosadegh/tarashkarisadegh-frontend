@@ -3,7 +3,7 @@ import classes from './Cylinder.module.css';
 import NavigationBar from '../../NavigationBar/NavigationBar';
 import Aos from 'aos';
 import "aos/dist/aos.css";
-
+import Footer from '../../Footer/Footer';
 const Cylinder = () => {
 
     useEffect(() => {
@@ -58,6 +58,8 @@ const Cylinder = () => {
                     <img src="/image/CylinderBoosh.jpg" className={classes.image}/>
                 </div>
             </div>
+
+            <Footer />
         </div>
     );
 }

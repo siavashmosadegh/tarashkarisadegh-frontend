@@ -2,7 +2,6 @@ import React from 'react';
 import { Row , Col} from 'react-bootstrap';
 //import {Link} from 'react-router-dom';
 //import Iframe from 'react-iframe';
-import myStyle from './style';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -12,6 +11,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import MailIcon from '@material-ui/icons/Mail';
 import classes from './Footer.module.css';
+import {Link} from 'react-router-dom';
 
 const Footer = () => {
 
@@ -25,32 +25,39 @@ const Footer = () => {
                         <div className={classes.social}>
                             <div>
                                 <a href="https://www.instagram.com/melang_tarashi_sadegh/">
-                                    <InstagramIcon style={{ fontSize: 40 }} />
+                                    <InstagramIcon style={{ fontSize: 40 , color: "white"}} />
                                 </a>
 
                                 <a href="https://www.youtube.com/channel/UCT3ORQT64ndL80wR6GeajVA">
-                                    <YouTubeIcon style={{ fontSize: 40 }}/>
+                                    <YouTubeIcon style={{ fontSize: 40 , color: "white"}}/>
                                 </a>
 
                                 <a href="https://twitter.com/tarashkari">
-                                    <TwitterIcon style={{ fontSize: 40 }} />
+                                    <TwitterIcon style={{ fontSize: 40 , color: "white"}} />
                                 </a>
                                 
                                 <a href="https://t.me/sadeghmosadegh">
-                                    <TelegramIcon style={{ fontSize: 40 }}/>
+                                    <TelegramIcon style={{ fontSize: 40 , color: "white"}}/>
                                 </a>
                                 
-                                <LinkedInIcon style={{ fontSize: 40 }}/>
-                                <WhatsAppIcon style={{ fontSize: 40 }}/>
-                                <FacebookIcon style={{ fontSize: 40 }}/>
-                                <MailIcon style={{ fontSize: 40 }}/>
+                                <a href="https://www.linkedin.com/in/sadegh-mosadegh-60b344231/">
+                                    <LinkedInIcon style={{ fontSize: 40 , color: "white"}}/>
+                                </a>
+                                {/* <WhatsAppIcon style={{ fontSize: 40 }}/>
+                                <FacebookIcon style={{ fontSize: 40 }}/> */}
+
+                                <a href="mailto:milangtarashisadegh@gmail.com">
+                                    <MailIcon style={{ fontSize: 40 , color: "white"}}/>
+                                </a>
                             </div>
                         </div>
 
                     </Col>
 
                     <Col md={3}>
-                        <h1 className={classes.header}>انواع تعمیرات سیلندر</h1>
+                        <Link to="/cylinder">
+                            <h1 className={classes.header}>انواع تعمیرات سیلندر</h1>
+                        </Link>
                         <br></br>
                         <p className={classes.paragraff}>تعمیر جای بوش سیلندر</p>
                         <p className={classes.paragraff}>برقوی سیلندر</p>
@@ -63,7 +70,9 @@ const Footer = () => {
                     </Col>
 
                     <Col md={3}>
-                        <h1 className={classes.header}>انواع تعمیرات سرسیلندر</h1>
+                        <Link to="/cylinderhead">
+                            <h1 className={classes.header}>انواع تعمیرات سرسیلندر</h1>
+                        </Link>
                         <br></br>
                         <p className={classes.paragraff}>آب بندی سرسیلندر</p>
                         <p className={classes.paragraff}>کف تراشی سرسیلندر</p>

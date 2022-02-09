@@ -5,7 +5,7 @@ import ContactUsNumAndAddVerTwo from '../ContactUsNumAndAddVerTwo/ContactUsNumAn
 import NavigationBar from '../NavigationBar/NavigationBar';
 import Iframe from 'react-iframe';
 import AnotherHeader from '../AnotherHeader/AnotherHeader';
-
+import Footer from '../Footer/Footer';
 function TheActualContactUs () {
 
     //const style = myStyle();
@@ -48,15 +48,7 @@ function TheActualContactUs () {
             <br></br>
             <br></br>
             
-            {/* <Row>
-                <Col md={2} />
-
-                <Col md={8}>
-                    <Iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3246.106683279055!2d51.172083614474396!3d35.551067344708606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f92098310e1bf31%3A0x14fc6f8b31f556f9!2z2KrYsdin2LTZg9in2LHZiSDZiCDZhdmK2YQg2YTZhtqvINiq2LHYp9i02Ykg2LXYp9iv2YI!5e0!3m2!1sen!2s!4v1617692206639!5m2!1sen!2s" width="1000" height="1000" allowfullscreen="false" loading="lazy" />
-                </Col>
-
-                <Col md={2} />
-            </Row> */}
+            <Footer />
         </div>
     );
 }

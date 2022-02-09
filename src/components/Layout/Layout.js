@@ -6,7 +6,7 @@ import TheActualContactUs from '../TheActualContactUs/TheActualContactUs';
 //import Login from '../Login/Login';
 import MyOrders from '../MyOrders/MyOrders';
 import MainPageServicesVersionTwo from '../MainPageServicesVersionTwo/MainPageServicesVersionTwo';
-import CylinderServices from '../ServicesSinglePages/CylinderServices/CylinderServices';
+// import CylinderServices from '../ServicesSinglePages/CylinderServices/CylinderServices';
 import CylinderheadServices from '../ServicesSinglePages/CylinderheadServices/CylinderheadServices';
 import BetweenNavigationBarAndFooter from '../BetweenNavigationBarAndFooter/BetweenNavigationBarAndFooter';
 import AfterLoginOrRegister from '../AfterLoginOrRegister/AfterLoginOrRegister';
@@ -40,8 +40,6 @@ function Layout () {
 
                 <Route exact path="/" component={BetweenNavigationBarAndFooter} />
             </BrowserRouter>
-
-            <Footer />
         </div>
     );
 }

@@ -4,9 +4,8 @@ import MainPageContact from '../MainPageContact/MainPageContact';
 import MainPageWhyVersionOne from '../MainPageWhyVersionOne/MainPageWhyVersionOne';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import Welcome from '../Welcome/Welcome';
-import WelcomeVerTwo from '../WelcomeVerTwo/WelcomeVerTwo';
 import Why from '../Why/Why';
-
+import Footer from '../Footer/Footer';
 function BetweenNavigationBarAndFooter () {
     return (
         <div>
@@ -16,13 +15,11 @@ function BetweenNavigationBarAndFooter () {
 
             <Welcome />
 
-            {/* <WelcomeVerTwo /> */}
-
-            {/* <MainPageWhyVersionOne /> */}
-
             <Why />
 
             <MainPageContact />
+
+            <Footer />
         </div>
     );
 }

@@ -9,6 +9,7 @@ import Input from '../UI/Input/Input';
 import AfterAuthNavBar from '../AfterAuthNavBar/AfterAuthNavBar';
 import {connect} from 'react-redux';
 import Line from '../Line/Line';
+import Footer from '../Footer/Footer';
 
 class ContactData extends Component {
     state = {
@@ -354,7 +355,8 @@ class ContactData extends Component {
                         {form}
                     </div>
                 </div>
-            
+                
+                <Footer />
             </div>
         );
     }

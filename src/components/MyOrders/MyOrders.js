@@ -4,11 +4,11 @@ import axios from 'axios';
 import Spinner from '../UI/Spinner/Spinner';
 import MyOrdersCell from './MyOrdersCell/MyOrdersCell';
 import AfterAuthNavBar from '../AfterAuthNavBar/AfterAuthNavBar';
-import {connect} from 'react-redux';
-import * as actions from '../../store/actions/index';
+// import {connect} from 'react-redux';
+// import * as actions from '../../store/actions/index';
 import Empty from '../Empty/Empty';
 import Line from '../Line/Line';
-
+import Footer from '../Footer/Footer';
 class MyOrders extends Component {
 
     state = {
@@ -89,6 +89,7 @@ class MyOrders extends Component {
                 <Line />
                 {finalDiv}
                 <Line />
+                <Footer />
             </div>
         );
     }

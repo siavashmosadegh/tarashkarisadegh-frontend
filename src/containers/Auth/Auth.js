@@ -10,6 +10,7 @@ import {Redirect} from 'react-router-dom';
 import {Button} from 'react-bootstrap';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LockIcon from '@mui/icons-material/Lock';
+import Footer from '../../components/Footer/Footer';
 
 var dict = {
     'email' : <AccountBoxIcon fontSize="larger"/> ,
@@ -226,6 +227,8 @@ class Auth extends Component {
                         </div>
                     </div>
                 </div>
+
+                <Footer />
             </div>
         );
     }

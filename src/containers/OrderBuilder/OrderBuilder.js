@@ -11,6 +11,7 @@ import {connect} from 'react-redux';
 //import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import AfterAuthNavBar from '../../components/AfterAuthNavBar/AfterAuthNavBar';
 import * as actions from '../../store/actions/index';
+import Footer from '../../components/Footer/Footer';
 
 class OrderBuilder extends Component {
 
@@ -217,6 +218,8 @@ class OrderBuilder extends Component {
                     {orderSummary}
                 </Modal>
                 {order}
+
+                <Footer />
             </div>
         );
     }

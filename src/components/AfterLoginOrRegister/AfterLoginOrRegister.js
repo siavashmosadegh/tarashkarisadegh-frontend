@@ -4,7 +4,7 @@ import classes from './AfterLoginOrRegister.module.css';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Line from '../Line/Line';
-
+import Footer from '../Footer/Footer';
 class AfterLoginOrRegister extends Component {
 
     componentDidMount () {
@@ -35,7 +35,8 @@ class AfterLoginOrRegister extends Component {
                 </div>
 
                 <Line />
-    
+
+                <Footer />
             </div>
         );
     }

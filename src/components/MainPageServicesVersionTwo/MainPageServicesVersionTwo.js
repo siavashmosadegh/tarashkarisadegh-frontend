@@ -2,7 +2,7 @@ import React from 'react';
 import NavigationBar from '../NavigationBar/NavigationBar';
 import MainPageServicesItem from './MainPageServicesItem/MainPageServicesItem';
 import classes from './MainPageServicesVersionTwo.module.css';
-
+import Footer from '../Footer/Footer';
 const MainPageServicesVersionTwo = () => {
 
     return (
@@ -52,6 +52,8 @@ const MainPageServicesVersionTwo = () => {
                     </div>
                 </div>
             </div>
+
+            <Footer />
         </div>
     );
 }
