@@ -1,26 +1,28 @@
 import React from 'react';
 import {BrowserRouter , Route} from 'react-router-dom';
-//import {Container , Row , Col} from 'react-bootstrap';
 import TheActualContactUs from '../TheActualContactUs/TheActualContactUs';
-// import Register from '../Register/Register';
-//import Login from '../Login/Login';
 import MyOrders from '../MyOrders/MyOrders';
 import MainPageServicesVersionTwo from '../MainPageServicesVersionTwo/MainPageServicesVersionTwo';
-// import CylinderServices from '../ServicesSinglePages/CylinderServices/CylinderServices';
 import CylinderheadServices from '../ServicesSinglePages/CylinderheadServices/CylinderheadServices';
 import BetweenNavigationBarAndFooter from '../BetweenNavigationBarAndFooter/BetweenNavigationBarAndFooter';
 import AfterLoginOrRegister from '../AfterLoginOrRegister/AfterLoginOrRegister';
 import Order from '../Order/Order';
-import Footer from '../Footer/Footer';
-//import OrderVerTwo from '../OrderVerTwo/OrderVerTwo';
 import OrderBuilder from '../../containers/OrderBuilder/OrderBuilder';
-//import RegisterVerTwo from '../../components/RegisterVerTwo/RegisterVerTwo';
 import ContactData from '../../components/ContactData/ContactData';
-//import LoginVerTwo from '../../containers/LoginVerTwo/LoginVerTwo';
 import Auth from '../../containers/Auth/Auth';
 import Logout from '../../containers/Auth/Logout/Logout';
 import Panel from '../../containers/Panel/Panel';
 import Cylinder from '../ServicesSinglePages/Cylinder/Cylinder';
+// import PrivateRoute from '../PrivateRoute';
+// import Footer from '../Footer/Footer';
+// import LoginVerTwo from '../../containers/LoginVerTwo/LoginVerTwo';
+// import RegisterVerTwo from '../../components/RegisterVerTwo/RegisterVerTwo';
+// import OrderVerTwo from '../OrderVerTwo/OrderVerTwo';
+// import CylinderServices from '../ServicesSinglePages/CylinderServices/CylinderServices';
+// import Register from '../Register/Register';
+// import Login from '../Login/Login';
+// import {Container , Row , Col} from 'react-bootstrap';
+
 function Layout () {
     return (
         <div>

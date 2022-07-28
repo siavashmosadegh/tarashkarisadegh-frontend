@@ -49,11 +49,11 @@ export const auth = (email, password, isSignup) => {
             returnSecureToken: true
         }
 
-        let url = 'http://162.55.9.246/api/v1/customer/signup'
-        // let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s';
+        // let url = 'http://162.55.9.246/api/v1/customer/signup'
+        let url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s';
         if (!isSignup) {
-            // url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s'
-            url = 'http://162.55.9.246/api/v1/customer/signin'
+            url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBAFdFPze6WE0pt-MdL_DhKJV3lL4b7S1s'
+            // url = 'http://162.55.9.246/api/v1/customer/signin'
         }
         axios.post(url,authData)
             .then(response => {
@@ -74,7 +74,7 @@ export const auth = (email, password, isSignup) => {
 
                 // console.log(err);
                 console.log(err.response.data.error.message);
-                dispatch(authFail(err.response.data.error.message));
+                // dispatch(authFail(err.response.data.error.message));
             });
     };
 };

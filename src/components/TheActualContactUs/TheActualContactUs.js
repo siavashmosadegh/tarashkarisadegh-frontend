@@ -6,6 +6,7 @@ import NavigationBar from '../NavigationBar/NavigationBar';
 import Iframe from 'react-iframe';
 import AnotherHeader from '../AnotherHeader/AnotherHeader';
 import Footer from '../Footer/Footer';
+import ContactUsFormVersionTwo from '../ContactUsFormVersionTwo';
 function TheActualContactUs () {
 
     //const style = myStyle();
@@ -35,7 +36,8 @@ function TheActualContactUs () {
                 </div>
 
                 <div className={classes.conrightdiv}>
-                    <ContactUsForm />
+                    {/* <ContactUsForm /> */}
+                    <ContactUsFormVersionTwo />
                 </div>
             </div>
 

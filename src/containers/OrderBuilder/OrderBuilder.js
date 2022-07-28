@@ -6,7 +6,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/OrderVerTwo/OrderSummary/OrderSummary';
 //import axios from '../../axios-orders';
 import axios from 'axios';
-import Aux from '../../hoc/Aux/Aux';
+import ReactAux from '../../hoc/ReactAux';
 import {connect} from 'react-redux';
 //import NavigationBar from '../../components/NavigationBar/NavigationBar';
 import AfterAuthNavBar from '../../components/AfterAuthNavBar/AfterAuthNavBar';
@@ -189,7 +189,7 @@ class OrderBuilder extends Component {
 
         if (this.state.repairables) {
             order = (
-                <Aux>
+                <ReactAux>
                     <OrderVerTwo orderablePieceProps={this.state.repairables} />
                     {/* <div style={{display: "flex",justifyContent: "flex-end"}}>
                         <img src="/image/pickup.jpg" alt="aks" />
@@ -201,7 +201,7 @@ class OrderBuilder extends Component {
                         ordered={this.purchaseHandler}
                         disabled={disabledInfo}
                     />
-                </Aux>
+                </ReactAux>
             );
             orderSummary = 
                 <OrderSummary 

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Aux from '../../../hoc/Aux/Aux';
+import ReactAux from '../../../hoc/ReactAux';
 import {Button} from 'react-bootstrap';
 import classes from './OrderSummary.module.css';
 
@@ -34,7 +34,7 @@ class OrderSummary extends Component {
                 );
             } );
         return (
-            <Aux>
+            <ReactAux>
                 <h3 className={classes.header}>سفارش شما</h3>
                 <p className={classes.paragraph}>: قطعات سفارشی شما به صورت زیر میباشد</p>
                 <div className={classes.list}>
@@ -45,7 +45,7 @@ class OrderSummary extends Component {
                     <Button variant="danger"  onClick={this.props.purchaseCancelled} className={classes.cancelbutton}>لغو</Button>
                     <Button variant="success" onClick={this.props.purchaseContinued} className={classes.confirmbutton}>تایید</Button>
                 </div>
-            </Aux>
+            </ReactAux>
         );
     }
 }

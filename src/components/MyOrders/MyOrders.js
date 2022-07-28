@@ -4,11 +4,13 @@ import axios from 'axios';
 import Spinner from '../UI/Spinner/Spinner';
 import MyOrdersCell from './MyOrdersCell/MyOrdersCell';
 import AfterAuthNavBar from '../AfterAuthNavBar/AfterAuthNavBar';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 // import * as actions from '../../store/actions/index';
 import Empty from '../Empty/Empty';
 import Line from '../Line/Line';
 import Footer from '../Footer/Footer';
+import { Redirect } from 'react-router-dom';
+
 class MyOrders extends Component {
 
     state = {
@@ -16,8 +18,8 @@ class MyOrders extends Component {
     }
 
     componentDidMount () {
-        // axios.get('https://tarashkari-test-one-default-rtdb.firebaseio.com/OrdersTwo.json?auth='+localStorage.getItem("token")+'&orderBy="userId"&equalTo="'+localStorage.getItem('userId')+ '"')
-        axios.get('http://162.55.9.246/api/v1/customer/orders?auth='+localStorage.getItem("token")+'&orderBy="userId"&equalTo="'+localStorage.getItem('userId')+ '"')
+        axios.get('https://tarashkari-test-one-default-rtdb.firebaseio.com/OrdersTwo.json?auth='+localStorage.getItem("token")+'&orderBy="userId"&equalTo="'+localStorage.getItem('userId')+ '"')
+        // axios.get('http://162.55.9.246/api/v1/customer/orders?auth='+localStorage.getItem("token")+'&orderBy="userId"&equalTo="'+localStorage.getItem('userId')+ '"')
             .then(res => {
                 console.log(this.props.token);
                 const fetchedOrders = [];
@@ -68,7 +70,8 @@ class MyOrders extends Component {
                         {mapOrders}
                     </div>
                 )
-            } else {
+            } 
+            else {
                 mapOrders = <Empty paragraph="هیچ سفارشی ثبت نکرده اید ..." />;
 
                 finalDiv = (
@@ -77,14 +80,18 @@ class MyOrders extends Component {
                     </div>
                 );
             }
-
-        
         }
 
         console.log(this.state.orders);
 
+        let authRedirect = null;
+        if (this.props.isAuthenticated === false) {
+            authRedirect = <Redirect to="register"/>
+        }
+
         return (
             <div>
+                {authRedirect}
                 <AfterAuthNavBar />
                 <Line />
                 {finalDiv}
@@ -95,4 +102,10 @@ class MyOrders extends Component {
     }
 }
 
-export default MyOrders;
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: state.auth.token !== null
+    }
+};
+
+export default connect(mapStateToProps)(MyOrders);

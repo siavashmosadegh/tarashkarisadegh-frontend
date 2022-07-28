@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 import Spinner from '../UI/Spinner/Spinner';
 import classes from './ContactData.module.css';
 //import axios from '../../axios-orders';
@@ -10,6 +10,7 @@ import AfterAuthNavBar from '../AfterAuthNavBar/AfterAuthNavBar';
 import {connect} from 'react-redux';
 import Line from '../Line/Line';
 import Footer from '../Footer/Footer';
+import ContactDataForm from '../../Views/Forms/ContactDataForm';
 
 class ContactData extends Component {
     state = {
@@ -271,25 +272,27 @@ class ContactData extends Component {
             });
         }
         let form = (
-            <form>
-                {formElementsArray.map(formElement => (
-                    <Input 
-                        key={formElement.id}
-                        elementType={formElement.config.elementType}
-                        elementConfig={formElement.config.elementConfig}
-                        value={formElement.config.value}
-                        invalid={!formElement.config.valid}
-                        shouldValidate={formElement.config.validation}
-                        touched={formElement.config.touched}
-                        changed={(event) => this.inputChangedHandler(event, formElement.id)} />
-                ))}
-                <div className={classes.LoginButtonDiv}>
-                    <Link to="/staff">
-                        <Button variant="success" onClick={this.infoHasBeenCompleted} className={classes.LoginButton} disabled={!this.state.formIsValid}>ثبت اطلاعات</Button>
-                    </Link>
-                </div>
-            </form>
+            // <form>
+            //     {formElementsArray.map(formElement => (
+            //         <Input 
+            //             key={formElement.id}
+            //             elementType={formElement.config.elementType}
+            //             elementConfig={formElement.config.elementConfig}
+            //             value={formElement.config.value}
+            //             invalid={!formElement.config.valid}
+            //             shouldValidate={formElement.config.validation}
+            //             touched={formElement.config.touched}
+            //             changed={(event) => this.inputChangedHandler(event, formElement.id)} />
+            //     ))}
+            //     <div className={classes.LoginButtonDiv}>
+            //         <Link to="/staff">
+            //             <Button variant="success" onClick={this.infoHasBeenCompleted} className={classes.LoginButton} disabled={!this.state.formIsValid}>ثبت اطلاعات</Button>
+            //         </Link>
+            //     </div>
+            // </form>
+            <ContactDataForm />
         );
+
         if ( this.state.loading ) {
             form = <Spinner />;
         }
@@ -328,8 +331,16 @@ class ContactData extends Component {
             );
             secondHeader = null;
         }
+
+        let authRedirect = null
+        
+        if (this.props.isAuthenticated === false) {
+            authRedirect = <Redirect to="/register" />
+        }
+
         return (
             <div>
+                {/* {authRedirect} */}
                 <AfterAuthNavBar />
                 
                 <Line />
@@ -368,6 +379,7 @@ const mapStateToProps = state => {
         // error: state.auth.error,
         // isAuthenticated: state.auth.token !== null
         token: state.auth.token,
+        isAuthenticated: state.auth.token !== null,
         contactdataAddress: state.contactdata.address,
         contactdataNameOfTheBusiness: state.contactdata.nameOfTheBusiness,
         contactdataOwnerFirstAndLastName: state.contactdata.ownerFirstAndLastName,

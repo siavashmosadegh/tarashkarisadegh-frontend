@@ -5,15 +5,26 @@ import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Line from '../Line/Line';
 import Footer from '../Footer/Footer';
+import { Redirect } from 'react-router-dom';
+
 class AfterLoginOrRegister extends Component {
 
     componentDidMount () {
         this.props.onInitContactData(this.props.token, localStorage.getItem('userId'));
     }
 
-    render () {        
+    render () {
+
+
+        let authRedirect = null
+        
+        if (this.props.isAuthenticated === true) {
+            authRedirect = <Redirect to="/register" />
+        }
+
         return (
             <div className={classes.root}>
+                {authRedirect}
                 <AfterAuthNavBar />
 
                 <Line />
@@ -45,7 +56,7 @@ class AfterLoginOrRegister extends Component {
 
 const mapStateToProps = state => {
     return {
-        token: state.auth.token
+        isAuthenticated: state.auth.token !== null
     }
 };
 

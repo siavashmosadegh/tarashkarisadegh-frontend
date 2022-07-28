@@ -31,8 +31,8 @@ export const fetchContactdata = (token,userId) => {
     return dispatch => {
         dispatch(contactdataStart());
         const queryParams = '?auth='+token+'&orderBy="userId"&equalTo="'+localStorage.getItem('userId')+ '"';
-        // axios.get('https://tarashkari-test-one-default-rtdb.firebaseio.com/contactdata.json'+queryParams)
-        axios.get('http://162.55.9.246/api/v1/customer/contactdata'+queryParams)
+        axios.get('https://tarashkari-test-one-default-rtdb.firebaseio.com/contactdata.json'+queryParams)
+        // axios.get('http://162.55.9.246/api/v1/customer/contactdata'+queryParams)
             .then( res => {
                 const fetchedData = [];
                 for (let key in res.data) {
